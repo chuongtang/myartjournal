@@ -1,45 +1,19 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import logo from './logo.svg'
 import './App.css'
+import { useContext } from 'react';
+import AuthContext from '../store/authContext';
+import AuthUser from './components/AuthUser'
 
-function App() {
-  const [count, setCount] = useState(0)
 
+const App = () => {
+  const { user, login, logout, authReady } = useContext(AuthContext)
+  console.log('user herer', user)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
-    </div>
+    // user ? <Home /> : <Login />
+    user==null ? <AuthUser /> : <p>Great</p>
+    // <p>Body app here {user} {authReady}</p>
   )
 }
 
-export default App
+export default App;

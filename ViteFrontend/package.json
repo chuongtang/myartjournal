@@ -7,16 +7,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@reach/dialog": "^0.16.2",
-    "@reach/tabs": "^0.16.4",
-    "@reach/visually-hidden": "^0.16.0",
+    "netlify-identity-widget": "^1.9.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-netlify-identity": "^0.2.5",
-    "react-netlify-identity-widget": "^0.2.7"
+    "react-router-dom": "^6.2.1"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.7",
-    "vite": "^2.7.2"
+    "vite": "^2.7.2",
+    "vite-plugin-windicss": "^1.6.3",
+    "windicss": "^3.4.3"
   }
 }
