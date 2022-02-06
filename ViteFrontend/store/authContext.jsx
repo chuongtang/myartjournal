@@ -17,9 +17,11 @@ export const AuthContextProvider = ({ children }) => {
   const [authReady, setAuthReady] = useState(false);
 
   useEffect(() => {
+
+    // These are the event listeners from Netlify-Identity
     netlifyIdentity.on('login', (user) => {
       setUser(user)
-      netlifyIdentity.close()
+      netlifyIdentity.close() // close the modal after login
       console.log('login event')
     })
     netlifyIdentity.on('logout', () => {
@@ -32,11 +34,13 @@ export const AuthContextProvider = ({ children }) => {
       console.log('init event')
     })
 
-    // init netlify identity connection
+    // initialise netlify identity connection
     netlifyIdentity.init()
 
+    // Turn of event listeners 
     return () => {
       netlifyIdentity.off('login')
+      netlifyIdentity.off('logout')
     }
   }, [])
 
@@ -48,6 +52,7 @@ export const AuthContextProvider = ({ children }) => {
     netlifyIdentity.logout()
   }
 
+  // Create context to feed into provider
   const context = { user, login, logout, authReady }
 
   return (
