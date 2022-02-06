@@ -1,6 +1,6 @@
 export default {
-  name: 'pin',
-  title: 'Pin',
+  name: 'art',
+  title: 'Art',
   type: 'document',
   fields: [
     {

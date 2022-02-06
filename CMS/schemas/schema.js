@@ -4,7 +4,7 @@ import createSchema from 'part:@sanity/base/schema-creator'
 // Then import schema types from any plugins that might expose them
 import schemaTypes from 'all:part:@sanity/base/schema-type'
 import user from './user';
-import pin from './pin'; //each img as a pin
+import art from './art'; //each upload as an art
 import comment from './comment';
 import postedBy from './postedBy';
 import save from './save';
@@ -17,6 +17,6 @@ export default createSchema({
   // to the ones provided by any plugins that are installed
   types: schemaTypes.concat([
     /* Your types here! */
-    pin, user, postedBy, comment, save,
+    art, user, postedBy, comment, save,
   ]),
 })
