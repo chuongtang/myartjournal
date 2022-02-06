@@ -16,8 +16,6 @@ const Home = () => {
   const scrollRef = useRef(null);
 
   const userInfo = localStorage.getItem('user') !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : localStorage.clear();
-
-  const { user, isAuthenticated, logout, } = useAuth0();
   // const { sub, name, picture } = user;
 
 

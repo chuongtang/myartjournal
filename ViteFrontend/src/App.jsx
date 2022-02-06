@@ -11,9 +11,9 @@ const App = () => {
   const { user, login, logout, authReady } = useContext(AuthContext)
   console.log('user herer', user)
   return (
-    // user ? <Home /> : <Login />
+    
     user==null ? <AuthUser /> : <Home />
-    // <p>Body app here {user} {authReady}</p>
+
   )
 }
 
