@@ -6,7 +6,7 @@ import SearchIcon from "../assets/SearchIcon.jsx"
 
 const Navbar = ({ searchTerm, setSearchTerm }) => {
   const navigate = useNavigate();
-  const { user, login, logout, authReady } = useContext(AuthContext)
+  const { user} = useContext(AuthContext)
   if (user) {
     return (
       <div className="flex gap-2 md:gap-5 w-full mt-5 pb-7 ">

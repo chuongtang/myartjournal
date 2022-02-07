@@ -20,7 +20,7 @@ const Home = () => {
   
 
   useEffect(() => {
-    console.log("User from context", user.id)
+    console.log("User from context", user)
 
     if (user) {
     //   console.log(`User`, JSON.stringify(user));
@@ -31,13 +31,13 @@ const Home = () => {
         _id: user.id,
         _type: 'user',
         userName: user.user_metadata.full_name,
-        image: user.picture || imgUrl ,
+        image: user.user_metadata.avatar_url || imgUrl ,
       };
       console.log(`newUserInfo`, JSON.stringify(newUserInfo));
       client.createIfNotExists(newUserInfo).then(() => {
         console.log('newUser added into Sanity');
       });
-      // setAppUser(newUserInfo);
+      setAppUser(newUserInfo);
     };
   }, [user]);
 
@@ -51,15 +51,13 @@ const Home = () => {
   return (
     <div className="flex bg-gray-50 md:flex-row flex-col h-screen transition-height duration-75 ease-out">
       <div className="hidden md:flex h-screen" >
-      {/* <div className="hidden md:flex h-screen" style={{marginRight:"-448px"}}> */}
-        <Sidebar user={user && user} />
-        {/* <Sidebar user={appUser && appUser} /> */}
+        <Sidebar user={appUser && appUser} />
       </div>
       <div className="flex md:hidden flex-row">
         <div className="p-2 w-full flex flex-row justify-between items-center shadow-md">
           <HiMenu fontSize={40} className="cursor-pointer" onClick={() => setToggleSidebar(true)} />
           <Link to="/">
-            <img src={logo} alt="logo" className="w-20" />
+            <img src={logo} alt="logo" className="h-8" />
           </Link>
           <Link to={`user-profile/${user?.id}`}>
             <img src={appUser?.image} alt="user-pic" className="w-9 h-9 rounded-full " />
