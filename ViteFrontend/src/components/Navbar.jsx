@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import AuthContext from '../../store/authContext'
 import { Link, useNavigate } from 'react-router-dom';
 import SearchIcon from "../assets/SearchIcon.jsx"
-import { useContext } from 'react'
-import AuthContext from '../../store/authContext'
+
 
 const Navbar = ({ searchTerm, setSearchTerm }) => {
   const navigate = useNavigate();

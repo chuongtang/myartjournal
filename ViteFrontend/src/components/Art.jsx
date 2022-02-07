@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import AuthContext from '../../store/authContext';
 import { Link, useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { MdDownloadForOffline } from 'react-icons/md';
@@ -10,9 +11,9 @@ import Loading from '../assets/Loading.svg'
 
 const Art = ({ art }) => {
 
-  const { user } = useAuth0();
-  const { sub, name, picture } = user
-  const sanityUserId = sub.replace("|", "-")
+  const { user } = useContext(AuthContext);
+  // const { sub, name, picture } = user
+  // const sanityUserId = sub.replace("|", "-")
   const [postHovered, setPostHovered] = useState(false);
   const [savingPost, setSavingPost] = useState(false);
   const [isLoading, setIsLoading] = useState(false);

@@ -22,23 +22,23 @@ const Home = () => {
   useEffect(() => {
     console.log("User from context", user.id)
 
-    // if (user) {
+    if (user) {
     //   console.log(`User`, JSON.stringify(user));
     //   const { sub, name, picture } = user
-
-    //   // ⇩ create this obj to store in Sanity
-    //   const newUserInfo = {
-    //     _id: sub.replace("|", "-"),
-    //     _type: 'user',
-    //     userName: name,
-    //     image: picture,
-    //   };
-    //   console.log(`newUserInfo`, JSON.stringify(newUserInfo));
-    //   client.createIfNotExists(newUserInfo).then(() => {
-    //     console.log('newUser added into Sanity');
-    //   });
-    //   setAppUser(newUserInfo);
-    // };
+      const imgUrl = `https://ui-avatars.com/api/?background=random&name=${user.user_metadata.full_name}&rounded=true&length=2`
+      // ⇩ create this obj to store in Sanity
+      const newUserInfo = {
+        _id: user.id,
+        _type: 'user',
+        userName: user.user_metadata.full_name,
+        image: user.picture || imgUrl ,
+      };
+      console.log(`newUserInfo`, JSON.stringify(newUserInfo));
+      client.createIfNotExists(newUserInfo).then(() => {
+        console.log('newUser added into Sanity');
+      });
+      // setAppUser(newUserInfo);
+    };
   }, [user]);
 
 
