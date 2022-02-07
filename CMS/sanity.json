@@ -1,11 +1,11 @@
 {
   "root": true,
-  "project": {
-    "name": "myvisualjournal"
-  },
   "api": {
-    "projectId": "01suuk4k",
+    "projectId": "82cpjewu",
     "dataset": "production"
+  },
+  "project": {
+    "name": "myartjournal"
   },
   "plugins": [
     "@sanity/base",
