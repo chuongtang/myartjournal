@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import SearchIcon from "../assets/SearchIcon.jsx"
+import { useContext } from 'react'
+import AuthContext from '../../store/authContext'
 
-const Navbar = ({ searchTerm, setSearchTerm, user }) => {
+const Navbar = ({ searchTerm, setSearchTerm }) => {
   const navigate = useNavigate();
-
+  const { user, login, logout, authReady } = useContext(AuthContext)
   if (user) {
     return (
       <div className="flex gap-2 md:gap-5 w-full mt-5 pb-7 ">

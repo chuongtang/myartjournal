@@ -4,13 +4,16 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { userCreatedArtsQuery, userQuery, userSavedArtsQuery } from '../utils/data';
 import { client } from '../client';
 import MasonryLayout from './MasonryLayout';
-// import Spinner from './Spinner';
+import { useContext } from 'react'
+import AuthContext from '../../store/authContext'
 import Loading from "../assets/Loading.svg";
 import Spinner from './Spinner';
+
 const activeBtnStyles = 'bg-yellow-600 text-white font-bold p-2 rounded-xl w-20 outline-none';
 const notActiveBtnStyles = 'bg-primary mr-4 text-indigo-900 font-bold p-2 rounded-xl w-20 outline-none';
 
 const UserProfile = () => {
+  const { user, login, logout, authReady } = useContext(AuthContext)
   const [appUser, setAppUser] = useState();
   const [sanUserID, setSanUserID] = useState();
   const [arts, setArts] = useState();
@@ -20,12 +23,12 @@ const UserProfile = () => {
   const { userId } = useParams();
   const [loading, setLoading] = useState(false);
 
-  const {
-    user,
-    isAuthenticated,
-    loginWithRedirect,
-    logout,
-  } = useAuth0();
+  // const {
+  //   user,
+  //   isAuthenticated,
+  //   loginWithRedirect,
+  //   logout,
+  // } = useAuth0();
 
   const User = localStorage.getItem('user') !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : localStorage.clear();
 
@@ -34,7 +37,7 @@ const UserProfile = () => {
     // client.fetch(query).then((data) => {
     // setAppUser(data[0]);
     const { sub } = user;
-    setSanUserID(sub.replace("|", "-"));
+    // setSanUserID(sub.replace("|", "-"));
     setAppUser(user);
   },
     [user]);
@@ -78,12 +81,12 @@ const UserProfile = () => {
 
             <img
               className="rounded-full w-18 h-18 mt-10 shadow-xl object-cover"
-              src={user.picture}
+              src={user.picture} //⬅need to add random avarta API here
               alt="user-pic"
             />
           </div>
           <h1 className="font-bold text-3xl text-indigo-900 text-shadow-lg text-center mt-3">
-            {user.name}
+            {user.full_name}
           </h1>
           <div className="absolute top-0 z-1 right-0 p-2">
 
@@ -121,14 +124,14 @@ const UserProfile = () => {
 
         <div className="px-2">
           {loading && (
-            <Spinner message={`Loading ${user.name}'s  art works`} />
+            <Spinner message={`Loading ${user.full_name}'s  art works`} />
           )}
           <MasonryLayout arts={arts} />
         </div>
 
         {arts?.length === 0 && (
           <div className="flex justify-center font-bold items-center w-full text-1xl mt-2">
-            Nothing to show !
+            Nothing to show..yet !
           </div>
         )}
       </div>

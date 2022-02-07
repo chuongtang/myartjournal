@@ -20,7 +20,7 @@ const Home = () => {
   
 
   useEffect(() => {
-    console.log("User from context", user)
+    console.log("User from context", user.id)
 
     // if (user) {
     //   console.log(`User`, JSON.stringify(user));
@@ -52,7 +52,8 @@ const Home = () => {
     <div className="flex bg-gray-50 md:flex-row flex-col h-screen transition-height duration-75 ease-out">
       <div className="hidden md:flex h-screen" >
       {/* <div className="hidden md:flex h-screen" style={{marginRight:"-448px"}}> */}
-        <Sidebar user={appUser && appUser} />
+        <Sidebar user={user && user} />
+        {/* <Sidebar user={appUser && appUser} /> */}
       </div>
       <div className="flex md:hidden flex-row">
         <div className="p-2 w-full flex flex-row justify-between items-center shadow-md">
@@ -60,7 +61,7 @@ const Home = () => {
           <Link to="/">
             <img src={logo} alt="logo" className="w-20" />
           </Link>
-          <Link to={`user-profile/${appUser?._id}`}>
+          <Link to={`user-profile/${user?.id}`}>
             <img src={appUser?.image} alt="user-pic" className="w-9 h-9 rounded-full " />
           </Link>
         </div>
@@ -69,7 +70,7 @@ const Home = () => {
             <div className="absolute w-full flex justify-end items-center p-2">
               <AiFillCloseCircle fontSize={30} className="cursor-pointer" onClick={() => setToggleSidebar(false)} />
             </div>
-            <Sidebar closeToggle={setToggleSidebar} user={appUser && appUser} />
+            <Sidebar closeToggle={setToggleSidebar} user={user && user} />
           </div>
         )}
 

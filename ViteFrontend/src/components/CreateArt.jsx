@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext  } from 'react';
 import { AiOutlineCloudUpload } from 'react-icons/ai';
 import { useNavigate } from 'react-router-dom';
 import { MdDelete } from 'react-icons/md';
-
+import AuthContext from '../../store/authContext'
 import { categories } from '../utils/data';
 import { client } from '../client';
 import Spinner from './Spinner';
@@ -10,7 +10,8 @@ import UploadIcon from '../assets/UploadIcon';
 import DeleteIcon from '../assets/DeleleteIcon';
 import SaveIcon from '../assets/SaveIcon';
 
-const CreateArt = ({ user }) => {
+const CreateArt = () => {
+  const { user, login, logout, authReady } = useContext(AuthContext)
   const [title, setTitle] = useState('');
   const [about, setAbout] = useState('');
   const [loading, setLoading] = useState(false);
@@ -58,7 +59,7 @@ const CreateArt = ({ user }) => {
             _ref: imageAsset?._id,
           },
         },
-        userId: user._id,
+        userId: user.id,
         postedBy: {
           _type: 'postedBy',
           _ref: user._id,
