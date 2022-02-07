@@ -13,7 +13,7 @@ const activeBtnStyles = 'bg-yellow-600 text-white font-bold p-2 rounded-xl w-20 
 const notActiveBtnStyles = 'bg-primary mr-4 text-indigo-900 font-bold p-2 rounded-xl w-20 outline-none';
 
 const UserProfile = () => {
-  const { user, login, logout, authReady } = useContext(AuthContext)
+  const { user, login, logout, userImgUrl } = useContext(AuthContext)
   const [appUser, setAppUser] = useState();
   const [sanUserID, setSanUserID] = useState();
   const [arts, setArts] = useState();
@@ -23,12 +23,6 @@ const UserProfile = () => {
   const { userId } = useParams();
   const [loading, setLoading] = useState(false);
 
-  // const {
-  //   user,
-  //   isAuthenticated,
-  //   loginWithRedirect,
-  //   logout,
-  // } = useAuth0();
 
   const User = localStorage.getItem('user') !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : localStorage.clear();
 
@@ -81,7 +75,7 @@ const UserProfile = () => {
 
             <img
               className="rounded-full w-18 h-18 mt-10 shadow-xl object-cover"
-              src={user.picture} //⬅need to add random avarta API here
+              src={userImgUrl} //⬅need to add random avarta API here
               alt="user-pic"
             />
           </div>
