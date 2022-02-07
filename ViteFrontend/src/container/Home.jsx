@@ -14,10 +14,8 @@ const Home = () => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
   const [appUser, setAppUser] = useState();
   const scrollRef = useRef(null);
-  const { user, login, logout, authReady } = useContext(AuthContext)
+  const { user, login, logout, authReady, userImgUrl } = useContext(AuthContext)
   const userInfo = localStorage.getItem('user') !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : localStorage.clear();
-  // const { sub, name, picture } = user;
-  
 
   useEffect(() => {
     console.log("User from context", user)
@@ -25,13 +23,13 @@ const Home = () => {
     if (user) {
     //   console.log(`User`, JSON.stringify(user));
     //   const { sub, name, picture } = user
-      const imgUrl = `https://ui-avatars.com/api/?background=random&name=${user.user_metadata.full_name}&rounded=true&length=2`
+      // const imgUrl = `https://ui-avatars.com/api/?background=random&name=${user.user_metadata.full_name}&rounded=true&length=2`
       // ⇩ create this obj to store in Sanity
       const newUserInfo = {
         _id: user.id,
         _type: 'user',
         userName: user.user_metadata.full_name,
-        image: user.user_metadata.avatar_url || imgUrl ,
+        image: userImgUrl ,
       };
       console.log(`newUserInfo`, JSON.stringify(newUserInfo));
       client.createIfNotExists(newUserInfo).then(() => {
@@ -60,7 +58,7 @@ const Home = () => {
             <img src={logo} alt="logo" className="h-8" />
           </Link>
           <Link to={`user-profile/${user?.id}`}>
-            <img src={appUser?.image} alt="user-pic" className="w-9 h-9 rounded-full " />
+            <img src={appUser?.userImgUrl} alt="user-pic" className="w-9 h-9 rounded-full " />
           </Link>
         </div>
         {toggleSidebar && (

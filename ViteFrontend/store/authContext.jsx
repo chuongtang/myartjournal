@@ -5,8 +5,8 @@ import netlifyIdentity from 'netlify-identity-widget';
 // create global context 
 export const AuthContext = createContext({
   user: null,
-  login: () => {},
-  logout: () => {},
+  login: () => { },
+  logout: () => { },
   authReady: false
 })
 
@@ -51,13 +51,15 @@ export const AuthContextProvider = ({ children }) => {
   const logout = () => {
     netlifyIdentity.logout()
   }
-
+  const userImgUrl = () => {
+    return user.user_metadata.avarta_url ? user.user_metadata.avarta_url : `https://ui-avatars.com/api/?background=random&name=${user.user_metadata.full_name}&rounded=true&length=2`
+  }
   // Create context to feed into provider
-  const context = { user, login, logout, authReady }
+  const context = { user, login, logout, authReady, userImgUrl }
 
   return (
     <AuthContext.Provider value={context}>
-      { children }
+      {children}
     </AuthContext.Provider>
   )
 }

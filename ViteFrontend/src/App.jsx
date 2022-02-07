@@ -8,7 +8,7 @@ import Home from './container/Home'
 
 
 const App = () => {
-  const { user, login, logout, authReady } = useContext(AuthContext)
+  const { user } = useContext(AuthContext)
   console.log('user herer', user)
   return (
     

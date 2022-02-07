@@ -6,13 +6,12 @@ import SearchIcon from "../assets/SearchIcon.jsx"
 
 const Navbar = ({ searchTerm, setSearchTerm }) => {
   const navigate = useNavigate();
-  const { user} = useContext(AuthContext)
+  const { user, userImgUrl} = useContext(AuthContext)
   if (user) {
     return (
       <div className="flex gap-2 md:gap-5 w-full mt-5 pb-7 ">
         <div className="flex justify-start items-center w-full px-2 rounded-md bg-white border-none outline-none focus-within:shadow-sm">
           <SearchIcon style={{ maxHeight: "3rem" }} />
-
           <input
             type="text"
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -24,7 +23,7 @@ const Navbar = ({ searchTerm, setSearchTerm }) => {
         </div>
         <div className="flex gap-3 ">
           <Link to={`user-profile/${user?._id}`} className="hidden md:block">
-            <img src={user.image} alt="user-picutre" className="w-14 h-12 rounded-lg " />
+            <img src={userImgUrl} alt="user-picutre" className="w-14 h-12 rounded-lg " />
           </Link>
           <Link to="/create-art" className=" rounded-lg w-12 h-12 md:w-14 md:h-12 flex justify-center items-center">
             <svg xmlns="http://www.w3.org/2000/svg" width="752pt" height="752pt" viewBox="0 0 752 752">
