@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
-
+import React, { useState, useRef, useEffect, useContext } from 'react';
+import AuthContext from '../store/authContext'
 import { HiMenu } from 'react-icons/hi';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { Link, Route, Routes } from 'react-router-dom';
@@ -14,29 +14,31 @@ const Home = () => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
   const [appUser, setAppUser] = useState();
   const scrollRef = useRef(null);
-
+  const { user, login, logout, authReady } = useContext(AuthContext)
   const userInfo = localStorage.getItem('user') !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : localStorage.clear();
   // const { sub, name, picture } = user;
-
+  
 
   useEffect(() => {
-    if (user) {
-      console.log(`User`, JSON.stringify(user));
-      const { sub, name, picture } = user
+    console.log("User from context", user)
 
-      // ⇩ create this obj to store in Sanity
-      const newUserInfo = {
-        _id: sub.replace("|", "-"),
-        _type: 'user',
-        userName: name,
-        image: picture,
-      };
-      console.log(`newUserInfo`, JSON.stringify(newUserInfo));
-      client.createIfNotExists(newUserInfo).then(() => {
-        console.log('newUser added into Sanity');
-      });
-      setAppUser(newUserInfo);
-    };
+    // if (user) {
+    //   console.log(`User`, JSON.stringify(user));
+    //   const { sub, name, picture } = user
+
+    //   // ⇩ create this obj to store in Sanity
+    //   const newUserInfo = {
+    //     _id: sub.replace("|", "-"),
+    //     _type: 'user',
+    //     userName: name,
+    //     image: picture,
+    //   };
+    //   console.log(`newUserInfo`, JSON.stringify(newUserInfo));
+    //   client.createIfNotExists(newUserInfo).then(() => {
+    //     console.log('newUser added into Sanity');
+    //   });
+    //   setAppUser(newUserInfo);
+    // };
   }, [user]);
 
 
