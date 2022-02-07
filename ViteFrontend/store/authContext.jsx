@@ -52,7 +52,7 @@ export const AuthContextProvider = ({ children }) => {
     netlifyIdentity.logout()
   }
   const userImgUrl = () => {
-    return user.user_metadata.avarta_url ? user.user_metadata.avarta_url : `https://ui-avatars.com/api/?background=random&name=${user.user_metadata.full_name}&rounded=true&length=2`
+    return user.user_metadata.avatar_url ? user.user_metadata.avatar_url : `https://ui-avatars.com/api/?background=random&name=${user.user_metadata.full_name}&rounded=true&length=2`
   }
   // Create context to feed into provider
   const context = { user, login, logout, authReady, userImgUrl }
