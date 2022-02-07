@@ -92,7 +92,9 @@ const UserProfile = () => {
 
             <button type="button"
               className="inline-block px-6 py-2.5 mr-2 bg-yellow-200 font-semibold text-indigo-900 text-md leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:text-white hover:shadow-lg focus:bg-blue-700 focus:shadow-xl focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" 
-              onClick={() => logout()} >
+              onClick={() => {
+                logout()
+                navigate('/')}} >
               LOG OUT
             </button>
 
