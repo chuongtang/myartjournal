@@ -3,10 +3,10 @@ import AuthContext from '../../store/authContext'
 import { HiMenu } from 'react-icons/hi';
 import { AiFillCloseCircle } from 'react-icons/ai';
 import { Link, Route, Routes } from 'react-router-dom';
-// import { Sidebar, UserProfile } from '../components';
+import { Sidebar, UserProfile } from '../components';
 import { userQuery } from '../utils/data';
 import { client } from '../client';
-import Art from './Arts';
+import Arts from './Arts';
 import logo from '../assets/logo.png';
 
 
@@ -50,7 +50,6 @@ const Home = () => {
 
   return (
     <div className="flex bg-gray-50 md:flex-row flex-col h-screen transition-height duration-75 ease-out">
-      <p>HOME COMPONENT HERE</p>
       <div className="hidden md:flex h-screen" >
       {/* <div className="hidden md:flex h-screen" style={{marginRight:"-448px"}}> */}
         <Sidebar user={appUser && appUser} />
