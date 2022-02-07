@@ -48,7 +48,7 @@ const Home = () => {
 
   return (
     <div className="flex bg-gray-50 md:flex-row flex-col h-screen transition-height duration-75 ease-out">
-
+      <p>HOME COMPONENT HERE</p>
       <div className="hidden md:flex h-screen" >
       {/* <div className="hidden md:flex h-screen" style={{marginRight:"-448px"}}> */}
         <Sidebar user={appUser && appUser} />

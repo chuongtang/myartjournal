@@ -6,9 +6,6 @@ import { AuthContextProvider } from '../store/authContext';
 import 'virtual:windi.css';
 
 
-
-const url = 'https://mydigitaljournal.netlify.app';
-
 ReactDOM.render(
   <React.StrictMode>
     <AuthContextProvider>
