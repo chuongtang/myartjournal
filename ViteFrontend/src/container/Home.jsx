@@ -20,7 +20,7 @@ const Home = () => {
 
 
   useEffect(() => {
-    if (isAuthenticated) {
+    if (user) {
       console.log(`User`, JSON.stringify(user));
       const { sub, name, picture } = user
 
@@ -37,7 +37,7 @@ const Home = () => {
       });
       setAppUser(newUserInfo);
     };
-  }, [isAuthenticated]);
+  }, [user]);
 
 
   useEffect(() => {
