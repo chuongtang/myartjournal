@@ -15,7 +15,7 @@ import AuthContext from '../../store/authContext'
 
 const AuthUser = () => {
 
-  const { user, login, logout, authReady } = useContext(AuthContext)
+  const { user, login, logout, authReady, userImgUrl } = useContext(AuthContext)
   console.log(user)
 
   // Title animation config START
