@@ -11,7 +11,7 @@ import DeleteIcon from '../assets/DeleleteIcon';
 import SaveIcon from '../assets/SaveIcon';
 
 const CreateArt = () => {
-  const { user, login, logout, authReady } = useContext(AuthContext)
+  const { user, userImgUrl,  } = useContext(AuthContext)
   const [title, setTitle] = useState('');
   const [about, setAbout] = useState('');
   const [loading, setLoading] = useState(false);
@@ -34,6 +34,7 @@ const CreateArt = () => {
         .then((document) => {
           setImageAsset(document);
           setLoading(false);
+          // navigate('/');
         })
         .catch((error) => {
           console.log('Upload failed:', error.message);
@@ -62,21 +63,19 @@ const CreateArt = () => {
         userId: user.id,
         postedBy: {
           _type: 'postedBy',
-          _ref: user._id,
+          _ref: user.id,
         },
         category,
       };
       client.create(doc).then(() => {
         navigate('/');
+        console.log("save file fired")
       });
     } else {
       setFields(true);
 
       setTimeout(
-        () => {
-          setFields(false);
-        },
-        2000,
+        () => { setFields(false) },  2000,
       );
     }
   };
@@ -153,7 +152,7 @@ const CreateArt = () => {
           {user && (
             <div className="flex gap-2 mt-2 mb-2 items-center bg-white rounded-lg ">
               <img
-                src={user.image}
+                src={userImgUrl}
                 className="w-10 h-10 rounded-full"
                 alt="user-profile"
               />

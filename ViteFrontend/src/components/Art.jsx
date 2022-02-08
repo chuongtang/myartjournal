@@ -62,8 +62,8 @@ const Art = ({ art }) => {
   };
 
   useEffect(() => {
-    console.log('PostedBy.ID', postedBy._id);
-    console.log('User from sanityUserId', sanityUserId)
+    // console.log('PostedBy.ID', postedBy._id);
+    // console.log('User from sanityUserId', sanityUserId)
   })
 
   return (
@@ -115,7 +115,7 @@ const Art = ({ art }) => {
             <div className=" flex justify-between items-center gap-2 w-full">
 
               {
-                postedBy?._id === sanityUserId && (
+                postedBy?._id === user.id && (
 
                   <button
                     type="button"

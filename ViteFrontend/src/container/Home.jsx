@@ -54,6 +54,8 @@ const Home = () => {
       <div className="flex md:hidden flex-row">
         <div className="p-2 w-full flex flex-row justify-between items-center shadow-md">
           <HiMenu fontSize={40} className="cursor-pointer" onClick={() => setToggleSidebar(true)} />
+          
+          {/* ⇩ Resposive logo & userprofile for small devide */}
           <Link to="/">
             <img src={logo} alt="logo" className="h-8" />
           </Link>
@@ -75,7 +77,7 @@ const Home = () => {
      
         <Routes>
           <Route path="/user-profile/:userId" element={<UserProfile />} />
-          <Route path="/*" element={<Arts user={appUser && appUser} />} />
+          <Route path="/*" element={<Arts user={user && user} />} />
         </Routes>
       </div>
 
