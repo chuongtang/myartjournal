@@ -10,18 +10,19 @@ const Feed = () => {
   const [loading, setLoading] = useState(false);
   const { categoryId } = useParams();
 
-  useEffect(() => {
+  useEffect(async () => {
     if (categoryId) {
       setLoading(true);
       const query = searchQuery(categoryId);
-      client.fetch(query).then((data) => {
+      await client.fetch(query).then((data) => {
         setArts(data);
         setLoading(false);
       });
     } else {
       setLoading(true);
-
-      client.fetch(feedQuery).then((data) => {
+      console.log("else section in feed's useEffect fired")
+      await client.fetch(feedQuery).then((data) => {
+        console.log("DATA from fetch", data)
         setArts(data);
         setLoading(false);
       });
