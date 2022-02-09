@@ -487,7 +487,7 @@ const ParticleBG = () => {
                 "animation": {
                   "count": 0,
                   "enable": true,
-                  "speed": 0.5,
+                  "speed": 0.2,
                   "sync": false,
                   "destroy": "none",
                   "startValue": "random",
@@ -536,7 +536,7 @@ const ParticleBG = () => {
                   "value": 0
                 },
                 "mode": "vertical",
-                "speed": 25
+                "speed": 20
               },
               "rotate": {
                 "random": {
@@ -579,7 +579,7 @@ const ParticleBG = () => {
                 "animation": {
                   "count": 0,
                   "enable": true,
-                  "speed": 3,
+                  "speed": 2,
                   "sync": false,
                   "destroy": "none",
                   "startValue": "random",
