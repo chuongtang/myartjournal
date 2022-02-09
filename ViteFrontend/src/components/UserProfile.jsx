@@ -7,7 +7,9 @@ import MasonryLayout from './MasonryLayout';
 import { useContext } from 'react'
 import AuthContext from '../../store/authContext'
 import Loading from "../assets/Loading.svg";
+import ExitIcon from "../assets/ExitIcon";
 import Spinner from './Spinner';
+import AvatarGenerator from '../../src/utils/AvatarGenerator'
 
 const activeBtnStyles = 'bg-yellow-600 text-white font-bold p-2 rounded-xl w-20 outline-none';
 const notActiveBtnStyles = 'bg-primary mr-4 text-indigo-900 font-bold p-2 rounded-xl w-20 outline-none';
@@ -67,32 +69,25 @@ const UserProfile = () => {
       <div className="flex flex-col pb-5">
         <div className="relative flex flex-col mb-7">
           <div className="flex flex-col justify-center items-center">
-            <img
-              className=" w-full h-370 2xl:h-510 shadow-lg object-cover"
+             <img
+              className=" w-full h-40 2xl:h-70 shadow-lg object-cover"
               src="https://source.unsplash.com/1600x900/?textures-patterns,art"
               alt="user-pic"
             />
-
-            <img
-              className="rounded-full w-18 h-18 mt-10 shadow-xl object-cover"
-              src={userImgUrl} //⬅need to add random avarta API here
-              alt="user-pic"
-            />
+            <AvatarGenerator />
           </div>
           <h1 className="font-bold text-3xl text-indigo-900 text-shadow-lg text-center mt-3">
-            {user.full_name}
+            {user.user_metadata.full_name}
           </h1>
           <div className="absolute top-0 z-1 right-0 p-2">
 
             <button type="button"
-              className="inline-block px-6 py-2.5 mr-2 bg-yellow-200 font-semibold text-indigo-900 text-md leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:text-white hover:shadow-lg focus:bg-blue-700 focus:shadow-xl focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" 
+              className="px-1 py-1 border border-yellow-500 hover:bg-yellow-500 text-gray-800 hover:text-white text-sm font-medium rounded-md" 
               onClick={() => {
                 logout()
                 navigate('/')}} >
-              LOG OUT
+              Log out
             </button>
-
-
           </div>
         </div>
         <div className="text-center mb-7">
@@ -117,10 +112,10 @@ const UserProfile = () => {
             Saved
           </button>
         </div>
-
+            <AvatarGenerator/>
         <div className="px-2">
           {loading && (
-            <Spinner message={`Loading ${user.full_name}'s  art works`} />
+            <Spinner message={`Loading ${user.user_metadata.full_name}'s  art works`} />
           )}
           <MasonryLayout arts={arts} />
         </div>

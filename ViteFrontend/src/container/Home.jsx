@@ -7,7 +7,7 @@ import { Sidebar, UserProfile } from '../components';
 import { userQuery } from '../utils/data';
 import { client } from '../client';
 import Arts from './Arts';
-import logo from '../assets/logo.png';
+import AppLogo from '../assets/AppLogo'
 
 
 const Home = () => {
@@ -21,9 +21,7 @@ const Home = () => {
     console.log("User from context", user)
 
     if (user) {
-    //   console.log(`User`, JSON.stringify(user));
-    //   const { sub, name, picture } = user
-      // const imgUrl = `https://ui-avatars.com/api/?background=random&name=${user.user_metadata.full_name}&rounded=true&length=2`
+    
       // ⇩ create this obj to store in Sanity
       const newUserInfo = {
         _id: user.id,
@@ -49,7 +47,7 @@ const Home = () => {
   return (
     <div className="flex bg-gray-50 md:flex-row flex-col h-screen transition-height duration-75 ease-out">
       <div className="hidden md:flex h-screen" >
-        <Sidebar user={appUser && appUser} />
+        <Sidebar user={user && user} />
       </div>
       <div className="flex md:hidden flex-row">
         <div className="p-2 w-full flex flex-row justify-between items-center shadow-md">
@@ -57,7 +55,7 @@ const Home = () => {
           
           {/* ⇩ Resposive logo & userprofile for small devide */}
           <Link to="/">
-            <img src={logo} alt="logo" className="h-8" />
+            <AppLogo />
           </Link>
           <Link to={`user-profile/${user?.id}`}>
             <img src={appUser?.image} alt="user-pic" className="w-9 h-9 rounded-full " />
