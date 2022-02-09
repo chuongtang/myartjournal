@@ -2,10 +2,10 @@ import React,{ useContext } from 'react';
 import AuthContext from '../../store/authContext'
 import { NavLink, Link } from 'react-router-dom';
 import RightArrow from '../assets/RightArrow';
-import logo from '../assets/logo.png';
 import AppLogo from '../assets/AppLogo';
 import HomeIcon from '../assets/HomeIcon';
 import { categories } from '../utils/data';
+import AvatarGenerator from "../utils/AvatarGenerator";
 
 const isNotActiveStyle = 'flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize';
 const isActiveStyle = 'flex items-center px-5 gap-3 font-extrabold transition-all duration-200 ease-in-out capitalize';
@@ -60,7 +60,8 @@ const Sidebar = ({ closeToggle }) => {
           className="flex my-5 mb-3 gap-2 p-2 items-center bg-red rounded-lg shadow-lg mx-3"
           onClick={handleCloseSidebar}
         >
-          <img src={userImgUrl} className="w-10 h-10 rounded-full" alt="user-profile" />
+          {/* <img src={userImgUrl} className="w-10 h-10 rounded-full" alt="user-profile" /> */}
+          <AvatarGenerator />
           <p>{user.userName}</p>
           <RightArrow style={{ maxHeight: "1.75rem" }} />
         </Link>

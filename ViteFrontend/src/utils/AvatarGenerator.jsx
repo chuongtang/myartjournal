@@ -1,12 +1,20 @@
-// import react, {useEffect, useState} from "react";
-import * as React from "react";
+import react, {useEffect, useState, useContext} from "react";
+import AuthContext from '../../store/authContext';
+
+// ⇩ Random colors for gradient svg background
 const randomColor1 =`#${Math.random().toString(16).slice(2, 8).padEnd(6, '0')}`;
 const randomColor =`#${Math.random().toString(16).slice(2, 8).padEnd(6, '0')}`;
 console.log("**", randomColor);
 
 function AvatarGenerator(props) {
-  
+  const { user, userImgUrl } = useContext(AuthContext);
   return (
+
+    userImgUrl ? <img
+      className="rounded-full w-18 h-18 mt-10 shadow-xl object-cover -mt-12 border-transparent border-5"
+      src={userImgUrl}
+      alt="user-pic"
+    /> :
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
@@ -42,11 +50,12 @@ function AvatarGenerator(props) {
         </text>
         <text fill="rgba(255, 255, 255, 1)" transform="translate(256 317)">
           <tspan x={0} y={0}>
-            {props.text}
+            {user.user_metadata.full_name.substring(0,2)}
           </tspan>
         </text>
       </g>
     </svg>
+    
   );
 }
 

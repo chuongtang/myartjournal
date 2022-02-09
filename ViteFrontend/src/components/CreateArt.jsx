@@ -9,6 +9,7 @@ import Spinner from './Spinner';
 import UploadIcon from '../assets/UploadIcon';
 import DeleteIcon from '../assets/DeleleteIcon';
 import SaveIcon from '../assets/SaveIcon';
+import AvatarGenerator from "../utils/AvatarGenerator";
 
 const CreateArt = () => {
   const { user, userImgUrl,  } = useContext(AuthContext)
@@ -150,11 +151,12 @@ const CreateArt = () => {
           />
           {user && (
             <div className="flex gap-2 mt-2 mb-2 items-center bg-white rounded-lg ">
-              <img
+              {/* <img
                 src={userImgUrl}
                 className="w-10 h-10 rounded-full"
                 alt="user-profile"
-              />
+              /> */}
+              <AvatarGenerator />
               <p className="font-bold">{user.userName}</p>
             </div>
           )}

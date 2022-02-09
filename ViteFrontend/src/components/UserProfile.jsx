@@ -69,21 +69,12 @@ const UserProfile = () => {
       <div className="flex flex-col pb-5">
         <div className="relative flex flex-col mb-7">
           <div className="flex flex-col justify-center items-center">
-            <img
+             <img
               className=" w-full h-40 2xl:h-70 shadow-lg object-cover"
               src="https://source.unsplash.com/1600x900/?textures-patterns,art"
               alt="user-pic"
             />
-            {userImgUrl ? <img
-              className="rounded-full w-18 h-18 mt-10 shadow-xl object-cover -mt-12 border-transparent border-5"
-              src={userImgUrl}
-              alt="user-pic"
-            /> : <AvatarGenerator text={(user.user_metadata.full_name).substring(0,2)} /> }
-            {/* <img
-              className="rounded-full w-18 h-18 mt-10 shadow-xl object-cover -mt-12 border-transparent border-5"
-              src={userImgUrl}
-              alt="user-pic"
-            /> */}
+            <AvatarGenerator />
           </div>
           <h1 className="font-bold text-3xl text-indigo-900 text-shadow-lg text-center mt-3">
             {user.user_metadata.full_name}
@@ -97,8 +88,6 @@ const UserProfile = () => {
                 navigate('/')}} >
               Log out
             </button>
-
-
           </div>
         </div>
         <div className="text-center mb-7">
@@ -126,7 +115,7 @@ const UserProfile = () => {
             <AvatarGenerator/>
         <div className="px-2">
           {loading && (
-            <Spinner message={`Loading ${user.full_name}'s  art works`} />
+            <Spinner message={`Loading ${user.user_metadata.full_name}'s  art works`} />
           )}
           <MasonryLayout arts={arts} />
         </div>

@@ -7,7 +7,7 @@ import { Sidebar, UserProfile } from '../components';
 import { userQuery } from '../utils/data';
 import { client } from '../client';
 import Arts from './Arts';
-import logo from '../assets/logo.png';
+import AppLogo from '../assets/AppLogo'
 
 
 const Home = () => {
@@ -55,7 +55,7 @@ const Home = () => {
           
           {/* ⇩ Resposive logo & userprofile for small devide */}
           <Link to="/">
-            <img src={logo} alt="logo" className="h-8" />
+            <AppLogo />
           </Link>
           <Link to={`user-profile/${user?.id}`}>
             <img src={appUser?.image} alt="user-pic" className="w-9 h-9 rounded-full " />

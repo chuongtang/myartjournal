@@ -2,7 +2,8 @@ import React, { useContext } from 'react';
 import AuthContext from '../../store/authContext'
 import { Link, useNavigate } from 'react-router-dom';
 import SearchIcon from "../assets/SearchIcon.jsx"
-import PlusIcon from "../assets/PlusIcon.jsx"
+import PlusIcon from "../assets/PlusIcon.jsx";
+import AvatarGenerator from "../utils/AvatarGenerator"
 
 
 const Navbar = ({ searchTerm, setSearchTerm }) => {
@@ -24,7 +25,8 @@ const Navbar = ({ searchTerm, setSearchTerm }) => {
         </div>
         <div className="flex gap-3 ">
           <Link to={`user-profile/${user?.id}`} className="hidden md:block">
-            <img src={userImgUrl} alt="user-picutre" className="w-14 h-12 rounded-lg " />
+            <AvatarGenerator />
+            {/* <img src={userImgUrl} alt="user-picutre" className="w-14 h-12 rounded-lg " /> */}
           </Link>
           <Link to="/create-art" className=" rounded-lg w-12 h-12 md:w-14 md:h-12 flex justify-center items-center">
             <PlusIcon />
