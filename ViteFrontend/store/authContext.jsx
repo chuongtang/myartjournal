@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
 import netlifyIdentity from 'netlify-identity-widget';
-
+import AvatarGenerator from '../src/utils/AvatarGenerator'
 
 // create global context 
 export const AuthContext = createContext({
@@ -51,8 +51,10 @@ export const AuthContextProvider = ({ children }) => {
   const logout = () => {
     netlifyIdentity.logout()
   }
-  const userImgUrl =  user?.user_metadata.avatar_url || `https://ui-avatars.com/api/?background=random&name=${user?.user_metadata.full_name}&rounded=true&length=2`
-  // const userImgUrl =  user?.user_metadata.avatar_url ? user?.user_metadata.avatar_url : `https://ui-avatars.com/api/?background=random&name=${user?.user_metadata.full_name}&rounded=true&length=2`
+  // const userImgUrl =  user?.user_metadata.avatar_url || <AvatarGenerator text={user?.user_metadata.full_name || "User"} />
+  // const userImgUrl =  user?.user_metadata.avatar_url || `https://ui-avatars.com/api/?background=random&name=${user?.user_metadata.full_name}&rounded=true&length=2`
+  const userImgUrl =  user?.user_metadata.avatar_url ;
+  
 
   // Create context to feed into provider
   const context = { user, login, logout, authReady, userImgUrl }

@@ -9,6 +9,7 @@ import AuthContext from '../../store/authContext'
 import Loading from "../assets/Loading.svg";
 import ExitIcon from "../assets/ExitIcon";
 import Spinner from './Spinner';
+import AvatarGenerator from '../../src/utils/AvatarGenerator'
 
 const activeBtnStyles = 'bg-yellow-600 text-white font-bold p-2 rounded-xl w-20 outline-none';
 const notActiveBtnStyles = 'bg-primary mr-4 text-indigo-900 font-bold p-2 rounded-xl w-20 outline-none';
@@ -73,15 +74,19 @@ const UserProfile = () => {
               src="https://source.unsplash.com/1600x900/?textures-patterns,art"
               alt="user-pic"
             />
-
-            <img
+            {userImgUrl ? <img
               className="rounded-full w-18 h-18 mt-10 shadow-xl object-cover -mt-12 border-transparent border-5"
               src={userImgUrl}
               alt="user-pic"
-            />
+            /> : <AvatarGenerator text={(user.user_metadata.full_name).substring(0,2)} /> }
+            {/* <img
+              className="rounded-full w-18 h-18 mt-10 shadow-xl object-cover -mt-12 border-transparent border-5"
+              src={userImgUrl}
+              alt="user-pic"
+            /> */}
           </div>
           <h1 className="font-bold text-3xl text-indigo-900 text-shadow-lg text-center mt-3">
-            {user.full_name}
+            {user.user_metadata.full_name}
           </h1>
           <div className="absolute top-0 z-1 right-0 p-2">
 
@@ -118,7 +123,7 @@ const UserProfile = () => {
             Saved
           </button>
         </div>
-
+            <AvatarGenerator/>
         <div className="px-2">
           {loading && (
             <Spinner message={`Loading ${user.full_name}'s  art works`} />
