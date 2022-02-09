@@ -82,7 +82,7 @@ const CreateArt = () => {
   return (
     <div className="flex flex-col justify-center items-center mt-5 lg:h-4/5">
       {fields && (
-        <p className="text-red-500 mb-5 text-xl transition-all duration-150 ease-in ">Please add all fields.</p>
+        <p className="mt-5 p-5 leading-normal text-white bg-yellow-500 rounded-lg transition-all duration-150 ease-in "> ⇩ All fields are required.</p>
       )}
       <div className=" flex lg:flex-row flex-col justify-center items-center bg-white lg:p-5 p-3 lg:w-4/5  w-full">
         <div className="bg-secondaryColor p-3 flex flex-0.7 w-full">
@@ -103,7 +103,6 @@ const CreateArt = () => {
               )
             }
             {!imageAsset ? (
-              // eslint-disable-next-line jsx-a11y/label-has-associated-control
               <label>
                 <div className="flex flex-col items-center justify-center h-full">
                   <div className="flex flex-col justify-center items-center">
@@ -134,7 +133,7 @@ const CreateArt = () => {
                   className=" p-3 rounded-full bg-white text-sm cursor-pointer outline-none hover:shadow-md transition-all duration-500 ease-in-out"
                   onClick={() => setImageAsset(null)}
                 >
-                  <DeleteIcon /> Cancel
+                  <DeleteIcon />
                 </button>
               </div>
             )}
@@ -188,9 +187,9 @@ const CreateArt = () => {
               <button
                 type="button"
                 onClick={saveArt}
-                className="bg-orange-500 text-white font-bold p-2 rounded-lg outline-none"
+                className="bg-orange-500 text-white font-bold p-2 rounded-full outline-none"
               >
-                Save <SaveIcon style={{ maxHeight: "2rem" }} />
+                <SaveIcon />
               </button>
             </div>
           </div>

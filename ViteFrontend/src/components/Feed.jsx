@@ -12,23 +12,29 @@ const Feed = () => {
 
   useEffect(async () => {
     if (categoryId) {
-      setLoading(true);
-      const query = searchQuery(categoryId);
-      await client.fetch(query).then((data) => {
+      try {
+        setLoading(true);
+        const query = searchQuery(categoryId);
+        const data = await client.fetch(query);
         setArts(data);
         setLoading(false);
-      });
+      } catch (error) {
+        console.log(error)
+      }
     } else {
-      setLoading(true);
-      console.log("else section in feed's useEffect fired")
-      await client.fetch(feedQuery).then((data) => {
-        console.log("DATA from fetch", data)
+      try {
+        setLoading(true);
+        console.log("else section in feed's useEffect fired");
+        const data = await client.fetch(feedQuery);
+        console.log("DATA from fetch", data);
         setArts(data);
         setLoading(false);
-      });
+      } catch (error) {
+        console.log(error)
+      };
     }
   }, [categoryId]);
-  
+
   // const ideaName = categoryId || 'new';
   if (loading) {
     return (
