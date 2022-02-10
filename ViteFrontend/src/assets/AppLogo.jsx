@@ -1,13 +1,14 @@
 import React from "react";
 
 function AppLogo(props) {
+  const logoSize = props.size || 50;
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
       style={{
-        height: 100,
-        width: 150,
+        height: logoSize,
+        width: logoSize,
       }}
       {...props}
     >

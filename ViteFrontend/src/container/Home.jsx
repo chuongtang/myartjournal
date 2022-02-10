@@ -50,18 +50,18 @@ const Home = () => {
       <div className="hidden md:flex h-screen" >
         <Sidebar user={user && user} />
       </div>
+
+      {/* ⇩  Resposive switch from sidebar to Hamburger Menu in Navbar*/}
       <div className="flex md:hidden flex-row">
-        <div className="p-2 w-full flex flex-row justify-between items-center shadow-md">
+        <div className="p-2 w-full flex flex-row justify-between items-center shadow-md bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500">
           <HiMenu fontSize={40} className="cursor-pointer" onClick={() => setToggleSidebar(true)} />
-
-
-          {/* ⇩ Resposive logo & userprofile for small devide */}
+  
           <Link to="/">
-            <AppLogo />
+            <AppLogo size={50} />
           </Link>
+
           <Link to={`user-profile/${user?.id}`}>
-            <AvatarGenerator size={20} />
-            {/* <img src={appUser?.image} alt="user-pict" className="w-9 h-9 rounded-full " /> */}
+            <AvatarGenerator size={50} />
           </Link>
         </div>
         {toggleSidebar && (
@@ -72,8 +72,9 @@ const Home = () => {
             <Sidebar closeToggle={setToggleSidebar} user={user && user} />
           </div>
         )}
-
       </div>
+          {/* End of Responsive switch */}
+
       <div className="pb-2 flex-1 h-screen overflow-y-scroll" ref={scrollRef}>
 
         <Routes>

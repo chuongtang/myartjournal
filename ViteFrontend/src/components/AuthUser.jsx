@@ -40,7 +40,7 @@ const AuthUser = () => {
         <div className="relative w-full h-full ">
           <div className="absolute flex flex-col justify-center items-center top-0 right-0 left-0 bottom-0 bg-blackOverlay">
             <div className="p-5">
-              <AppLogo />
+              <AppLogo size={200} />
             </div>
             <section className='mx-4 md:text-3xl lg:text-5xl font-600 text-shadow-sm  text-stroke-sm mb-8 flex'>
               <div style={{ color: "#E9E1B6" }}>Let's...</div>
