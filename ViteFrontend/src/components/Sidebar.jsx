@@ -61,7 +61,7 @@ const Sidebar = ({ closeToggle }) => {
           onClick={handleCloseSidebar}
         >
           {/* <img src={userImgUrl} className="w-10 h-10 rounded-full" alt="user-profile" /> */}
-          <AvatarGenerator />
+          <AvatarGenerator size={40} />
           <p>{user.userName}</p>
           <RightArrow style={{ maxHeight: "1.75rem" }} />
         </Link>

@@ -8,6 +8,8 @@ console.log("**", randomColor);
 
 function AvatarGenerator(props) {
   const { user, userImgUrl } = useContext(AuthContext);
+  const avatarSize = props.size;
+  console.log("**&&", avatarSize);
   return (
 
     userImgUrl ? <img
@@ -19,8 +21,8 @@ function AvatarGenerator(props) {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
       style={{
-        height: 50,
-        width: 50,
+        height: avatarSize,
+        width: avatarSize,
       }}
       {...props}
     >
