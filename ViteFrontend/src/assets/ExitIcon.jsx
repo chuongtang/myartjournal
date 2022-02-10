@@ -3,61 +3,50 @@ import React from "react";
 function ExitIcon(props) {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 512 512"
-      style={{
-        height: 50,
-        width: 50,
-      }}
-      {...props}
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="10 10 500 500"
+    style={{
+      height: "15%",
+      width: "15%",
+    }}
+    {...props}
+  >
+    
+    <title id="Exit Icon">Sign out</title>
+    <defs>
+      <linearGradient id="a">
+        <stop offset="0%" stopColor="#e61523" stopOpacity={0.51} />
+        <stop offset="100%" stopColor="#054634" />
+      </linearGradient>
+    </defs>
+    <path
+      d="M73 41v430h174V220.8c-.3 0-.7-.1-1-.1-21.5-2.9-39.3-2.1-48.7 1.9A71.88 71.88 0 0 1 160 233c-40.2 0-73-32.8-73-73s32.8-73 73-73c29 0 54.1 17 65.9 41.4.2.3.6.7 1.4 1.1 2 1.1 5.4 2.7 10 4.5 2.8 1.1 6.1 2.4 9.7 3.7V41H73zm152.9 87.4c-.4-.5-.2-.4.7 1.5-.2-.5-.5-1-.7-1.5zM160 105c-30.4 0-55 24.6-55 55s24.6 55 55 55c10.7 0 20.5-3 28.9-8.2l.6-.4.6-.3c15.3-6.6 35.3-6.4 58.3-3.3 23.1 3.2 49.2 9.6 75.6 17.6 52.7 16.1 106.4 38.4 137.2 53.5 9 4.5 12.2 3.2 14.2 1.5 2-1.7 4.1-6.8 3.6-14.2-1.1-14.7-12-34.7-32.3-41-78.3-24.5-135.1-42-173-54.4-18.9-6.2-33.1-11.1-43.1-15.1-5-2-8.9-3.7-12-5.5-3.2-1.7-6-2.4-8.4-7.8-8.7-19.1-27.8-32.4-50.2-32.4zm0 183a32 32 0 0 1 32 32 32 32 0 0 1-11.9 24.8L192 416h-64l11.9-71.2A32 32 0 0 1 128 320a32 32 0 0 1 32-32z"
+      fill="url(#a)"
+      transform="translate(0 -63)"
+    />
+    <g
+      fontFamily="Arial, Helvetica, sans-serif"
+      fontSize={136}
+      fontWeight="bold"
+      textAnchor="middle"
+      textDecoration="rgba(255, 255, 255, 1)"
     >
-      <defs>
-        <linearGradient x1={0} x2={0} y1={0} y2={1} id="a">
-          <stop offset="0%" stopColor="#f97316" />
-          <stop offset="100%" stopColor="#aef1ce" />
-        </linearGradient>
-        <linearGradient id="b">
-          <stop offset="0%" stopColor="#252422" />
-          <stop offset="100%" stopColor="#fffcf2" />
-        </linearGradient>
-      </defs>
-      <rect
-        fill="url(#a)"
-        stroke="#fff"
-        strokeWidth={9}
-        height={494}
-        width={494}
-        rx={32}
-        ry={32}
-      />
-      <path
-        d="M217 28.098v455.804l142-42.597V70.697zm159.938 26.88.062 2.327V87h16V55zM119 55v117.27h18V73h62V55zm258 50v16h16v-16zm0 34v236h16V139zm-240 58.727V233H41v46h96v35.273L195.273 256zM244 232c6.627 0 12 10.745 12 24s-5.373 24-12 24-12-10.745-12-24 5.373-24 12-24zM137 339.73h-18V448h18zM377 393v14h16v-14zm0 32v23h16v-23zM32 471v18h167v-18zm290.652 0-60 18H480v-18z"
-        fill="url(#b)"
-        transform="matrix(.6 0 0 .6 102.4 -12.6)"
-      />
-      <g
-        fontFamily="Arial, Helvetica, sans-serif"
-        fontSize={127}
-        fontWeight="bold"
-        textAnchor="middle"
-        textDecoration="rgba(129, 178, 154, 1)"
+      <text
+        stroke="rgba(0, 0, 0, 1)"
+        strokeWidth={34}
+        transform="translate(258 459)"
       >
-        <text
-          stroke="rgba(242, 204, 143, 1)"
-          strokeWidth={31.75}
-          transform="translate(243 417)"
-        >
-          <tspan x={0} y={0}>
-            {"Log out"}
-          </tspan>
-        </text>
-        <text fill="rgba(129, 178, 154, 1)" transform="translate(243 417)">
-          <tspan x={0} y={0}>
-            {"Log out"}
-          </tspan>
-        </text>
-      </g>
-    </svg>
+        <tspan x={0} y={0}>
+          {"Log out"}
+        </tspan>
+      </text>
+      <text fill="rgba(255, 255, 255, 1)" transform="translate(258 459)">
+        <tspan x={0} y={0}>
+          {"Log out"}
+        </tspan>
+      </text>
+    </g>
+  </svg>
   );
 }
 

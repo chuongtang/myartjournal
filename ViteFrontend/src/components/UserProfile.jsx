@@ -62,8 +62,6 @@ const UserProfile = () => {
   </div>;
 
 
-  // if (!user) return <Spinner message="Loading profile" />;
-
   return (
     <div className="relative pb-2 h-full justify-center items-center">
       <div className="flex flex-col pb-5">
@@ -81,14 +79,18 @@ const UserProfile = () => {
           </h1>
           <div className="absolute top-0 z-1 right-0 p-2">
 
-            <button type="button"
+            {/* <button type="button"
               className="px-1 py-1 border border-yellow-500 hover:bg-yellow-500 text-gray-800 hover:text-white text-sm font-medium rounded-md"
               onClick={() => {
                 logout()
                 navigate('/')
               }} >
               Log out
-            </button>
+            </button> */}
+            <ExitIcon onClick={() => {
+                logout()
+                navigate('/')
+              }} className="px-1 py-1 border border-yellow-500 hover:cursor-pointer hover:bg-yellow-500 rounded-xl float-right"/>
           </div>
         </div>
         <div className="text-center mb-7">

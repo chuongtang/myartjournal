@@ -60,8 +60,8 @@ const Home = () => {
             <AppLogo size={50} />
           </Link>
 
-          <Link to={`user-profile/${user?.id}`}>
-            <AvatarGenerator size={50} />
+          <Link to={`user-profile/${user?.id}`} className="border border-gray-500 rounded-full">
+            <AvatarGenerator size={30} />
           </Link>
         </div>
         {toggleSidebar && (
