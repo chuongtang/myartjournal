@@ -7,7 +7,8 @@ import { Sidebar, UserProfile } from '../components';
 import { userQuery } from '../utils/data';
 import { client } from '../client';
 import Arts from './Arts';
-import AppLogo from '../assets/AppLogo'
+import AppLogo from '../assets/AppLogo';
+import AvatarGenerator from '../utils/AvatarGenerator'
 
 
 const Home = () => {
@@ -51,35 +52,16 @@ const Home = () => {
       </div>
       <div className="flex md:hidden flex-row">
         <div className="p-2 w-full flex flex-row justify-between items-center shadow-md">
-          {/* <HiMenu fontSize={40} className="cursor-pointer" onClick={() => setToggleSidebar(true)} /> */}
+          <HiMenu fontSize={40} className="cursor-pointer" onClick={() => setToggleSidebar(true)} />
 
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 512 512"
-            style={{
-              height: 50,
-              width: 50,
-            }}
-            
-          >
-            <defs>
-              <linearGradient id="a">
-                <stop offset="0%" stopColor="#e61523" stopOpacity={0.51} />
-                <stop offset="100%" stopColor="#054634" />
-              </linearGradient>
-            </defs>
-            <path
-              d="M32 96v64h448V96H32zm0 128v64h448v-64H32zm0 128v64h448v-64H32z"
-              fill="url(#a)"
-            />
-          </svg>
 
           {/* ⇩ Resposive logo & userprofile for small devide */}
           <Link to="/">
             <AppLogo />
           </Link>
           <Link to={`user-profile/${user?.id}`}>
-            <img src={appUser?.image} alt="user-pic" className="w-9 h-9 rounded-full " />
+            <AvatarGenerator size={20} />
+            {/* <img src={appUser?.image} alt="user-pict" className="w-9 h-9 rounded-full " /> */}
           </Link>
         </div>
         {toggleSidebar && (
