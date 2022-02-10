@@ -23,11 +23,11 @@ const Sidebar = ({ closeToggle }) => {
       <div className="flex flex-col">
         <Link
           to="/"
-          className="flex px-5 gap-2 my-6 pt-1 items-center"
+          className="flex px-5 gap-2 my-4"
           onClick={handleCloseSidebar}
         >
           {/* <img src={logo} alt="logo" style={{ maxWidth: "10rem" }} /> */}
-          <AppLogo />
+          <AppLogo size={70}/>
         </Link>
         <div className="flex flex-col gap-5">
 
@@ -61,7 +61,7 @@ const Sidebar = ({ closeToggle }) => {
           onClick={handleCloseSidebar}
         >
           {/* <img src={userImgUrl} className="w-10 h-10 rounded-full" alt="user-profile" /> */}
-          <AvatarGenerator />
+          <AvatarGenerator size={40} />
           <p>{user.userName}</p>
           <RightArrow style={{ maxHeight: "1.75rem" }} />
         </Link>

@@ -69,12 +69,12 @@ const UserProfile = () => {
       <div className="flex flex-col pb-5">
         <div className="relative flex flex-col mb-7">
           <div className="flex flex-col justify-center items-center">
-             <img
+            <img
               className=" w-full h-40 2xl:h-70 shadow-lg object-cover"
               src="https://source.unsplash.com/1600x900/?textures-patterns,art"
               alt="user-pic"
             />
-            <AvatarGenerator />
+            <AvatarGenerator size={70} />
           </div>
           <h1 className="font-bold text-3xl text-indigo-900 text-shadow-lg text-center mt-3">
             {user.user_metadata.full_name}
@@ -82,10 +82,11 @@ const UserProfile = () => {
           <div className="absolute top-0 z-1 right-0 p-2">
 
             <button type="button"
-              className="px-1 py-1 border border-yellow-500 hover:bg-yellow-500 text-gray-800 hover:text-white text-sm font-medium rounded-md" 
+              className="px-1 py-1 border border-yellow-500 hover:bg-yellow-500 text-gray-800 hover:text-white text-sm font-medium rounded-md"
               onClick={() => {
                 logout()
-                navigate('/')}} >
+                navigate('/')
+              }} >
               Log out
             </button>
           </div>
@@ -112,7 +113,6 @@ const UserProfile = () => {
             Saved
           </button>
         </div>
-            <AvatarGenerator/>
         <div className="px-2">
           {loading && (
             <Spinner message={`Loading ${user.user_metadata.full_name}'s  art works`} />

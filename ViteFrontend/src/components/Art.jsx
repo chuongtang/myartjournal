@@ -2,26 +2,21 @@ import React, { useState, useEffect, useContext } from 'react';
 import AuthContext from '../../store/authContext';
 import { Link, useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-import { MdDownloadForOffline } from 'react-icons/md';
 import DeleleteIcon from '../assets/DeleleteIcon'
-import { AiTwotoneDelete } from 'react-icons/ai';
-import { BsFillArrowUpRightCircleFill } from 'react-icons/bs';
 import { client, urlFor } from '../client';
-import Loading from '../assets/Loading.svg'
+import Loading from '../assets/Loading.svg';
+import DownloadIcon from '../assets/DownloadIcon';
+import LikeIcon from '../assets/LikeIcon';
 
 const Art = ({ art }) => {
 
   const { user } = useContext(AuthContext);
-  // const { sub, name, picture } = user
-  // const sanityUserId = sub.replace("|", "-")
   const [postHovered, setPostHovered] = useState(false);
   const [savingPost, setSavingPost] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const { postedBy, image, _id, _ref } = art;
-
-  // const user = localStorage.getItem('user') !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : localStorage.clear();
 
   const deleteArt = (id) => {
     setIsLoading(true)
@@ -61,10 +56,6 @@ const Art = ({ art }) => {
     }
   };
 
-  useEffect(() => {
-    // console.log('PostedBy.ID', postedBy._id);
-    // console.log('User from sanityUserId', sanityUserId)
-  })
 
   return (
  
@@ -91,7 +82,7 @@ const Art = ({ art }) => {
                     e.stopPropagation();
                   }}
                   className="bg-white w-9 h-9 p-2 rounded-full flex items-center justify-center text-dark text-xl opacity-75 hover:opacity-100 hover:shadow-md outline-none"
-                ><MdDownloadForOffline />
+                ><DownloadIcon />
                 </a>
               </div>
               {alreadySaved?.length !== 0 ? (
@@ -106,9 +97,10 @@ const Art = ({ art }) => {
                     saveArt(_id);
                   }}
                   type="button"
-                  className="bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none"
+                  className="bg-gray-500/50 opacity-70 hover:opacity-100 text-white font-bold px-1 py-1 text-base hover:shadow-md rounded-1/2 outline-none"
                 >
-                  {art?.save?.length}   {savingPost ? 'Saving...' : 'Save'}
+                  {art?.save?.length}   {savingPost ? 'Saving...' : <LikeIcon />}
+                  {/* {art?.save?.length}   {savingPost ? 'Saving...' : 'Save'} */}
                 </button>
               )}
             </div>

@@ -151,12 +151,8 @@ const CreateArt = () => {
           />
           {user && (
             <div className="flex gap-2 mt-2 mb-2 items-center bg-white rounded-lg ">
-              {/* <img
-                src={userImgUrl}
-                className="w-10 h-10 rounded-full"
-                alt="user-profile"
-              /> */}
-              <AvatarGenerator />
+             
+              <AvatarGenerator size={50} />
               <p className="font-bold">{user.userName}</p>
             </div>
           )}

@@ -7,7 +7,8 @@ import { Sidebar, UserProfile } from '../components';
 import { userQuery } from '../utils/data';
 import { client } from '../client';
 import Arts from './Arts';
-import AppLogo from '../assets/AppLogo'
+import AppLogo from '../assets/AppLogo';
+import AvatarGenerator from '../utils/AvatarGenerator'
 
 
 const Home = () => {
@@ -21,13 +22,13 @@ const Home = () => {
     console.log("User from context", user)
 
     if (user) {
-    
+
       // ⇩ create this obj to store in Sanity
       const newUserInfo = {
         _id: user.id,
         _type: 'user',
         userName: user.user_metadata.full_name,
-        image: userImgUrl ,
+        image: userImgUrl,
       };
       console.log(`newUserInfo`, JSON.stringify(newUserInfo));
       client.createIfNotExists(newUserInfo).then(() => {
@@ -49,16 +50,18 @@ const Home = () => {
       <div className="hidden md:flex h-screen" >
         <Sidebar user={user && user} />
       </div>
+
+      {/* ⇩  Resposive switch from sidebar to Hamburger Menu in Navbar*/}
       <div className="flex md:hidden flex-row">
-        <div className="p-2 w-full flex flex-row justify-between items-center shadow-md">
+        <div className="p-2 w-full flex flex-row justify-between items-center shadow-md bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500">
           <HiMenu fontSize={40} className="cursor-pointer" onClick={() => setToggleSidebar(true)} />
-          
-          {/* ⇩ Resposive logo & userprofile for small devide */}
+  
           <Link to="/">
-            <AppLogo />
+            <AppLogo size={50} />
           </Link>
+
           <Link to={`user-profile/${user?.id}`}>
-            <img src={appUser?.image} alt="user-pic" className="w-9 h-9 rounded-full " />
+            <AvatarGenerator size={50} />
           </Link>
         </div>
         {toggleSidebar && (
@@ -69,10 +72,11 @@ const Home = () => {
             <Sidebar closeToggle={setToggleSidebar} user={user && user} />
           </div>
         )}
-
       </div>
+          {/* End of Responsive switch */}
+
       <div className="pb-2 flex-1 h-screen overflow-y-scroll" ref={scrollRef}>
-     
+
         <Routes>
           <Route path="/user-profile/:userId" element={<UserProfile />} />
           <Route path="/*" element={<Arts user={user && user} />} />

@@ -25,12 +25,10 @@ const Navbar = ({ searchTerm, setSearchTerm }) => {
         </div>
         <div className="flex gap-3 ">
           <Link to={`user-profile/${user?.id}`} className="hidden md:block">
-            <AvatarGenerator />
-            {/* <img src={userImgUrl} alt="user-picutre" className="w-14 h-12 rounded-lg " /> */}
+            <AvatarGenerator size={50} />
           </Link>
           <Link to="/create-art" className=" rounded-lg w-12 h-12 md:w-14 md:h-12 flex justify-center items-center">
             <PlusIcon />
-
           </Link>
         </div>
       </div>
