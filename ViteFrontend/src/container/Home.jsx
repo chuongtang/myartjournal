@@ -9,7 +9,8 @@ import { client } from '../client';
 import Arts from './Arts';
 import AppLogo from '../assets/AppLogo';
 import AvatarGenerator from '../utils/AvatarGenerator'
-
+import HamMenuIcon from '../assets/HamMenuIcon'
+import CloseMenuIcon from '../assets/CloseMenuIcon'
 
 const Home = () => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
@@ -54,8 +55,8 @@ const Home = () => {
       {/* ⇩  Resposive switch from sidebar to Hamburger Menu in Navbar*/}
       <div className="flex md:hidden flex-row">
         <div className="p-2 w-full flex flex-row justify-between items-center shadow-md bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500">
-          <HiMenu fontSize={40} className="cursor-pointer" onClick={() => setToggleSidebar(true)} />
-  
+          {/* <HiMenu fontSize={40} className="cursor-pointer" onClick={() => setToggleSidebar(true)} /> */}
+          <HamMenuIcon className="cursor-pointer" onClick={() => setToggleSidebar(true)}/>
           <Link to="/">
             <AppLogo size={50} />
           </Link>
@@ -67,7 +68,8 @@ const Home = () => {
         {toggleSidebar && (
           <div className="fixed w-4/5 bg-white h-screen overflow-y-auto shadow-md z-10 animate-slide-in">
             <div className="absolute w-full flex justify-end items-center p-2">
-              <AiFillCloseCircle fontSize={30} className="cursor-pointer" onClick={() => setToggleSidebar(false)} />
+              {/* <AiFillCloseCircle fontSize={30} className="cursor-pointer" onClick={() => setToggleSidebar(false)} /> */}
+              <CloseMenuIcon className="cursor-pointer" onClick={() => setToggleSidebar(false)} />
             </div>
             <Sidebar closeToggle={setToggleSidebar} user={user && user} />
           </div>

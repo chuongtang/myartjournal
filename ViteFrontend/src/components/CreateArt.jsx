@@ -35,7 +35,6 @@ const CreateArt = () => {
         .then((document) => {
           setImageAsset(document);
           setLoading(false);
-          // navigate('/');
         })
         .catch((error) => {
           console.log('Upload failed:', error.message);
@@ -48,7 +47,8 @@ const CreateArt = () => {
 
 
   // ❗ ⇩ Need to add form validation for creatArt
-  const saveArt = () => {
+  const saveArt = async () => {
+
     if (title && about && imageAsset?._id && category) {
       const doc = {
         _type: 'art',
@@ -68,14 +68,16 @@ const CreateArt = () => {
         },
         category,
       };
-      client.create(doc).then(() => {
-        console.log("save file fired")
+      try {
         setLoading(true);
+        await client.create(doc);
         navigate('/');
-      });
+      } catch (error) {
+        console.error
+      }
+
     } else {
       setFields(true);
-
       setTimeout(
         () => { setFields(false) },  2000,
       );
