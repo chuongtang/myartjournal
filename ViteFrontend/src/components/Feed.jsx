@@ -35,7 +35,6 @@ const Feed = () => {
     }
   }, [categoryId]);
 
-  // const ideaName = categoryId || 'new';
   if (loading) {
     return (
       <Spinner message={`...loading art works`} />

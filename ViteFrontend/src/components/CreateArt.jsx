@@ -69,8 +69,9 @@ const CreateArt = () => {
         category,
       };
       client.create(doc).then(() => {
-        navigate('/');
         console.log("save file fired")
+        setLoading(true);
+        navigate('/');
       });
     } else {
       setFields(true);
