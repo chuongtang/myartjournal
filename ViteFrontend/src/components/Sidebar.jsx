@@ -26,7 +26,6 @@ const Sidebar = ({ closeToggle }) => {
           className="flex px-5 gap-2 my-4"
           onClick={handleCloseSidebar}
         >
-          {/* <img src={logo} alt="logo" style={{ maxWidth: "10rem" }} /> */}
           <AppLogo size={70}/>
         </Link>
         <div className="flex flex-col gap-5">
@@ -57,10 +56,9 @@ const Sidebar = ({ closeToggle }) => {
       {user && (
         <Link
           to={`user-profile/${user.id}`}
-          className="flex my-5 mb-3 gap-2 p-2 items-center bg-red rounded-lg shadow-lg mx-3"
+          className="flex my-5 mb-3 gap-2 p-2 items-center bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 rounded-lg shadow-lg mx-3"
           onClick={handleCloseSidebar}
         >
-          {/* <img src={userImgUrl} className="w-10 h-10 rounded-full" alt="user-profile" /> */}
           <AvatarGenerator size={40} />
           <p>{user.userName}</p>
           <RightArrow style={{ maxHeight: "1.75rem" }} />
