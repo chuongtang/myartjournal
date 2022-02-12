@@ -2,6 +2,7 @@ import React from "react";
 
 function PlusIcon(props) {
   return (
+    <div class="border rounded-lg bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
@@ -54,6 +55,7 @@ function PlusIcon(props) {
         </text>
       </g>
     </svg>
+    </div>
   );
 }
 

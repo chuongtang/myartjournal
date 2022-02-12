@@ -2,6 +2,7 @@ import React from "react";
 
 const SearchIcon = (props) => {
   return (
+    
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
