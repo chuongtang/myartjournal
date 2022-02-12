@@ -17,7 +17,7 @@ function AvatarGenerator(props) {
       src={userImgUrl}
       alt="user-pic"
     /> :
-    <div class="border rounded-full bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500">
+    <div className="border rounded-full bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
