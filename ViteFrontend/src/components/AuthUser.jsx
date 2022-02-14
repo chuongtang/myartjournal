@@ -22,13 +22,13 @@ const AuthUser = () => {
   // Title animation config START
   const [index, setIndex] = useState(0);
 
-  // useEffect(() => {
-  //   const intervalId = setInterval(() =>
-  //     setIndex(index => index + 1),
-  //     3000
-  //   );
-  //   return () => clearTimeout(intervalId);
-  // }, []);
+  useEffect(() => {
+    const intervalId = setInterval(() =>
+      setIndex(index => index + 1),
+      3000
+    );
+    return () => clearTimeout(intervalId);
+  }, []);
   // Title animation config END
 
 
