@@ -53,7 +53,7 @@ export const AuthContextProvider = ({ children }) => {
   }
   // const userImgUrl =  user?.user_metadata.avatar_url || <AvatarGenerator text={user?.user_metadata.full_name || "User"} />
   // const userImgUrl =  user?.user_metadata.avatar_url || `https://ui-avatars.com/api/?background=random&name=${user?.user_metadata.full_name}&rounded=true&length=2`
-  const userImgUrl =  user?.user_metadata.avatar_url ;
+  const userImgUrl =  user?.user_metadata.avatar_url || "NetlifyIdentityUser";
   
 
   // Create context to feed into provider

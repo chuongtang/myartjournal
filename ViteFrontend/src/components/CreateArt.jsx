@@ -1,7 +1,7 @@
 import React, { useState, useContext  } from 'react';
-import { AiOutlineCloudUpload } from 'react-icons/ai';
+
 import { useNavigate } from 'react-router-dom';
-import { MdDelete } from 'react-icons/md';
+
 import AuthContext from '../../store/authContext'
 import { categories } from '../utils/data';
 import { client } from '../client';

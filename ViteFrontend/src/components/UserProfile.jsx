@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { AiOutlineLogout } from 'react-icons/ai';
+
 import { useParams, useNavigate } from 'react-router-dom';
 import { userCreatedArtsQuery, userQuery, userSavedArtsQuery } from '../utils/data';
 import { client } from '../client';
