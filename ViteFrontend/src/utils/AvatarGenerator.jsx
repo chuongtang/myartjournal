@@ -9,13 +9,13 @@ console.log("**", randomColor);
 function AvatarGenerator(props) {
   const { user, userImgUrl } = useContext(AuthContext);
   const avatarSize = props.size;
-  console.log("**&&", avatarSize);
+  console.log("**&&", userImgUrl);
   return (
 
     userImgUrl !== 'NetlifyIdentityUser' ? <img
       className="rounded-full w-18 h-18 mt-10 shadow-xl object-cover my-1 border-transparent border-5"
       src={userImgUrl}
-      alt="user-pic"
+      alt="user-picNEW"
     /> :
     <div className="border rounded-full bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500">
     <svg
