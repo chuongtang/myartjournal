@@ -155,7 +155,7 @@ const CreateArt = () => {
           {user && (
             <div className="flex gap-2 mt-2 mb-2 items-center bg-white rounded-lg ">
              
-              <AvatarGenerator size={50} />
+              <AvatarGenerator />
               <p className="font-bold">{user.userName}</p>
             </div>
           )}

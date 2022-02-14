@@ -59,7 +59,7 @@ const Sidebar = ({ closeToggle }) => {
           className="flex my-5 mb-3 gap-2 p-1 items-center bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 rounded-lg shadow-lg mx-3"
           onClick={handleCloseSidebar}
         >
-          <AvatarGenerator size={40} />
+          <AvatarGenerator />
           <p>{user?.user_metadata.full_name}</p>
           <RightArrow style={{ maxHeight: "1.75rem" }} />
         </Link>

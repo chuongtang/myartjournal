@@ -23,9 +23,9 @@ const Navbar = ({ searchTerm, setSearchTerm }) => {
             className="p-2 w-full bg-white outline-none"
           />
         </div>
-        <div className="flex gap-2 ">
+        <div className="flex ">
           <Link to={`user-profile/${user?.id}`} className="hidden md:block">
-            <AvatarGenerator size={20} />
+            <AvatarGenerator />
           </Link>
           <Link to="/create-art" className=" rounded-lg w-12 h-12 md:w-14 md:h-12 flex justify-center items-center">
             <PlusIcon />

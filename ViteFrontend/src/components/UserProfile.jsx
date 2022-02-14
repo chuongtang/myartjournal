@@ -72,7 +72,7 @@ const UserProfile = () => {
               src="https://source.unsplash.com/1600x900/?textures-patterns,art"
               alt="user-pic"
             />
-            <AvatarGenerator size={70} />
+            <AvatarGenerator />
           </div>
           <h1 className="font-bold text-3xl text-indigo-900 text-shadow-lg text-center mt-3">
             {user.user_metadata.full_name}

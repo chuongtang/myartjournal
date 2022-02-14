@@ -114,7 +114,7 @@ const ArtDetail = ({ user }) => {
             </div>
             <div className="flex flex-wrap mt-6 gap-3">
               <Link to={`/user-profile/${user._id}`}>
-                <AvatarGenerator size={40} />
+                <AvatarGenerator />
               </Link>
               <textarea
                 className="flex border-gray-100 outline-none border-2 p-2 rounded-lg w-11/12 xl:w-1/2 md:w-11/12 focus:border-gray-300"

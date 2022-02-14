@@ -60,7 +60,7 @@ const Home = () => {
           </Link>
 
           <Link to={`user-profile/${user?.id}`} className="border border-gray-500 rounded-full">
-            <AvatarGenerator size={30} />
+            <AvatarGenerator />
           </Link>
         </div>
         {toggleSidebar && (
