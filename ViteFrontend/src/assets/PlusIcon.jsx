@@ -2,13 +2,13 @@ import React from "react";
 
 function PlusIcon(props) {
   return (
-    <div className="border rounded-lg bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500">
+    <div className="border rounded-lg ml-2 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500">
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 512 512"
+      viewBox="0 0 510 510"
       style={{
-        height: 40,
-        width: 40,
+        height: 45,
+        width: 45,
       }}
       {...props}
     >
