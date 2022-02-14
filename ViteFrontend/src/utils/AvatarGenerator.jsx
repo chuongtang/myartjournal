@@ -12,7 +12,7 @@ function AvatarGenerator(props) {
   console.log("**&&", avatarSize);
   return (
 
-    userImgUrl ? <img
+    userImgUrl !== 'NetlifyIdentityUser' ? <img
       className="rounded-full w-18 h-18 mt-10 shadow-xl object-cover my-1 border-transparent border-5"
       src={userImgUrl}
       alt="user-pic"
