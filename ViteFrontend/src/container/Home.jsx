@@ -18,7 +18,7 @@ const Home = () => {
   const userInfo = localStorage.getItem('user') !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : localStorage.clear();
 
   useEffect(() => {
-    console.log("User from context", user)
+    // console.log("User from context", user)
 
     if (user) {
 
@@ -29,7 +29,7 @@ const Home = () => {
         userName: user.user_metadata.full_name,
         image: userImgUrl,
       };
-      console.log(`newUserInfo`, JSON.stringify(newUserInfo));
+      // console.log(`newUserInfo`, JSON.stringify(newUserInfo));
       client.createIfNotExists(newUserInfo).then(() => {
         console.log('newUser added into Sanity');
       });

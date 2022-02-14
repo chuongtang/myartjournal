@@ -68,7 +68,7 @@ export const AuthContextProvider = ({ children }) => {
 
   // Create context to feed into provider
   const context = { user, login, logout, authReady, userImgUrl }
-  console.log('CONTEXT from PROVIDER', context);
+  // console.log('CONTEXT from PROVIDER', context);
 
   return (
     <AuthContext.Provider value={context}>

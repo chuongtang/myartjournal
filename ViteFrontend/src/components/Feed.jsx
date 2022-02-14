@@ -11,7 +11,19 @@ const Feed = () => {
   const { categoryId } = useParams();
 
   useEffect(async () => {
-    if (categoryId) {
+    if (!categoryId) {
+      try {
+        setLoading(true);
+        console.log("else section in feed's useEffect fired");
+        const data = await client.fetch(feedQuery);
+        console.log("DATA from fetch", data);
+        setArts(data);
+        console.log("DATA AFTER  setState from fetch", data);
+        setLoading(false);
+      } catch (error) {
+        console.log(error)
+      };
+    } else {
       try {
         setLoading(true);
         const query = searchQuery(categoryId);
@@ -21,18 +33,6 @@ const Feed = () => {
       } catch (error) {
         console.log(error)
       }
-    } else {
-      try {
-        setLoading(true);
-        console.log("else section in feed's useEffect fired");
-        const data = await client.fetch(feedQuery);
-        console.log("DATA from fetch", data);
-        () => setArts(data);
-        console.log("DATA AFTER  setState from fetch", data);
-        setLoading(false);
-      } catch (error) {
-        console.log(error)
-      };
     }
   }, [categoryId]);
 

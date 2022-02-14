@@ -71,6 +71,8 @@ const CreateArt = () => {
       try {
         setLoading(true);
         await client.create(doc);
+        console.log('Log after saving art')
+        navigate('/search');
         navigate('/');
       } catch (error) {
         console.error

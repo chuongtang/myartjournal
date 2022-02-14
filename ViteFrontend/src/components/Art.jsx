@@ -17,7 +17,7 @@ const Art = ({ art }) => {
   const navigate = useNavigate();
 
   const { postedBy, image, _id, _ref } = art;
-  console.log('pppp', postedBy)
+  // console.log('pppp', postedBy)
   const deleteArt = (id) => {
     setIsLoading(true)
     client
