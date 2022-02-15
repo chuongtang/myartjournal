@@ -17,11 +17,10 @@ const Home = () => {
   const { user, login, logout, authReady, userImgUrl } = useContext(AuthContext)
   const userInfo = localStorage.getItem('user') !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : localStorage.clear();
 
-  useEffect(() => {
-    // console.log("User from context", user)
+  useEffect(async () => {
+    console.log("User from context", user)
 
     if (user) {
-
       // ⇩ create this obj to store in Sanity
       const newUserInfo = {
         _id: user.id,
@@ -29,11 +28,13 @@ const Home = () => {
         userName: user.user_metadata.full_name,
         image: userImgUrl,
       };
-      // console.log(`newUserInfo`, JSON.stringify(newUserInfo));
-      client.createIfNotExists(newUserInfo).then(() => {
+
+      try {
+        await client.createIfNotExists(newUserInfo);
         console.log('newUser added into Sanity');
-      });
-      setAppUser(newUserInfo);
+      } catch (error) {
+        console.log('error creating NewUSer', error)
+      }
     };
   }, [user]);
 

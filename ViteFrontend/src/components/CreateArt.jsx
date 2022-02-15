@@ -1,4 +1,4 @@
-import React, { useState, useContext  } from 'react';
+import React, { useState, useContext } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -12,7 +12,7 @@ import SaveIcon from '../assets/SaveIcon';
 import AvatarGenerator from "../utils/AvatarGenerator";
 
 const CreateArt = () => {
-  const { user, userImgUrl,  } = useContext(AuthContext)
+  const { user, userImgUrl, } = useContext(AuthContext)
   const [title, setTitle] = useState('');
   const [about, setAbout] = useState('');
   const [loading, setLoading] = useState(false);
@@ -23,27 +23,55 @@ const CreateArt = () => {
 
   const navigate = useNavigate();
 
-  const uploadImage = (e) => {
+  const uploadImage = async (e) => {
     const selectedFile = e.target.files[0];
     // uploading asset to sanity
 
-    if (selectedFile.type === 'image/png' || selectedFile.type === 'image/svg' || selectedFile.type === 'image/jpeg' || selectedFile.type === 'image/gif' || selectedFile.type === 'image/tiff') {
-      setWrongImageType(false);
-      setLoading(true);
-      client.assets
-        .upload('image', selectedFile, { contentType: selectedFile.type, filename: selectedFile.name })
-        .then((document) => {
-          setImageAsset(document);
-          setLoading(false);
-        })
-        .catch((error) => {
-          console.log('Upload failed:', error.message);
-        });
+    const imgTypes = ['image/png', 'image/jpeg', 'image/svg+xml', 'image/jpeg', 'image/gif', 'image/tiff'];
+
+    // Validate file type with above imagesType array
+    if (imgTypes.indexOf(selectedFile.type) !== -1) {
+      try {
+        setWrongImageType(false);
+        setLoading(true);
+        let document = await client.assets
+          .upload('image', selectedFile,
+            {
+              contentType: selectedFile.type,
+              filename: selectedFile.name
+            });
+        setImageAsset(document);
+        setLoading(false);
+      } catch (error) {
+        console.error("error form uploading IMG", error);
+        console.log('Upload failed:', error.message);
+      }
     } else {
       setLoading(false);
       setWrongImageType(true);
     }
-  };
+  }
+  //   if (selectedFile.type === 'image/png' || selectedFile.type === 'image/svg+xml' || selectedFile.type === 'image/jpeg' || selectedFile.type === 'image/gif' || selectedFile.type === 'image/tiff') {
+  //     try {
+  //       setWrongImageType(false);
+  //       setLoading(true);
+  //       let document = await client.assets
+  //         .upload('image', selectedFile,
+  //           {
+  //             contentType: selectedFile.type,
+  //             filename: selectedFile.name
+  //           });
+  //       setImageAsset(document);
+  //       setLoading(false);
+  //     } catch (error) {
+  //       console.error("error form uploading IMG", error);
+  //       console.log('Upload failed:', error.message);
+  //     }
+  //   } else {
+  //     setLoading(false);
+  //     setWrongImageType(true);
+  //   }
+  // };
 
 
   // ❗ ⇩ Need to add form validation for creatArt
@@ -81,7 +109,7 @@ const CreateArt = () => {
     } else {
       setFields(true);
       setTimeout(
-        () => { setFields(false) },  2000,
+        () => { setFields(false) }, 2000,
       );
     }
   };
@@ -156,7 +184,7 @@ const CreateArt = () => {
           />
           {user && (
             <div className="flex gap-2 mt-2 mb-2 items-center bg-white rounded-lg ">
-             
+
               <AvatarGenerator />
               <p className="font-bold">{user.userName}</p>
             </div>

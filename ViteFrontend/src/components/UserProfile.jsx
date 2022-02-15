@@ -16,8 +16,8 @@ const notActiveBtnStyles = 'bg-primary mr-4 text-indigo-900 font-bold p-2 rounde
 
 const UserProfile = () => {
   const { user, login, logout, userImgUrl } = useContext(AuthContext)
-  const [appUser, setAppUser] = useState();
-  const [sanUserID, setSanUserID] = useState();
+  // const [appUser, setAppUser] = useState();
+  // const [sanUserID, setSanUserID] = useState();
   const [arts, setArts] = useState();
   const [text, setText] = useState('Created');
   const [activeBtn, setActiveBtn] = useState('created');
@@ -28,32 +28,34 @@ const UserProfile = () => {
 
   const User = localStorage.getItem('user') !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : localStorage.clear();
 
-  useEffect(() => {
-    // const query = userQuery(userId);
-    // client.fetch(query).then((data) => {
-    // setAppUser(data[0]);
-    const { sub } = user;
-    // setSanUserID(sub.replace("|", "-"));
-    setAppUser(user);
-  },
-    [user]);
-  // }, [userId]);
+  // useEffect(() => {
+  //   // const query = userQuery(userId);
+  //   // client.fetch(query).then((data) => {
+  //   // setAppUser(data[0]);
+  //   const { sub } = user;
+  //   // setSanUserID(sub.replace("|", "-"));
+  //   setAppUser(user);
+  // },
+  //   [user]);
+  // // }, [userId]);
 
-  useEffect(() => {
-    if (text === 'Created') {
-      const createdArtsQuery = userCreatedArtsQuery(userId);
-      setLoading(true);
-      client.fetch(createdArtsQuery).then((data) => {
+  useEffect(async () => {
+    try {
+      if (text === 'Created') {
+        const createdArtsQuery = userCreatedArtsQuery(userId);
+        setLoading(true);
+        let data = await client.fetch(createdArtsQuery);
         setArts(data);
         setLoading(false);
-      });
-    } else {
-      const savedArtsQuery = userSavedArtsQuery(userId);
-
-      client.fetch(savedArtsQuery).then((data) => {
+      } else {
+        const savedArtsQuery = userSavedArtsQuery(userId);
+        let data = await client.fetch(savedArtsQuery);
         setArts(data);
-      });
+      }
+    } catch (error) {
+      console.error(error)
     }
+
   }, [text, userId]);
 
   if (!user) return <div>
@@ -88,9 +90,9 @@ const UserProfile = () => {
               Log out
             </button> */}
             <ExitIcon onClick={() => {
-                logout()
-                navigate('/')
-              }} className="px-1 py-1 border border-yellow-500 hover:cursor-pointer hover:bg-yellow-500 rounded-xl float-right"/>
+              logout()
+              navigate('/')
+            }} className="px-1 py-1 border border-yellow-500 hover:cursor-pointer hover:bg-yellow-500 rounded-xl float-right" />
           </div>
         </div>
         <div className="text-center mb-7">

@@ -9,19 +9,21 @@ const Search = ({ searchTerm }) => {
   const [arts, setArts] = useState();
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
+  useEffect(async () => {
     if (searchTerm !== '') {
-      setLoading(true);
-      const query = searchQuery(searchTerm.toLowerCase());
-      client.fetch(query).then((data) => {
+      try {
+        setLoading(true);
+        const query = searchQuery(searchTerm.toLowerCase());
+        let data = await client.fetch(query);
         setArts(data);
         setLoading(false);
-      });
+      } catch (error) {
+        console.error(error)
+      }
     } else {
-      client.fetch(feedQuery).then((data) => {
-        setArts(data);
-        setLoading(false);
-      });
+      let data = await client.fetch(feedQuery)
+      setArts(data);
+      setLoading(false);
     }
   }, [searchTerm]);
 
