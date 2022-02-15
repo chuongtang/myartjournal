@@ -153,7 +153,6 @@ const CreateArt = () => {
             )}
           </div>
         </div>
-
         <div className="flex flex-1 flex-col gap-6 lg:pl-5 mt-5 w-full">
           <input
             type="text"
@@ -164,7 +163,6 @@ const CreateArt = () => {
           />
           {user && (
             <div className="flex gap-2 mt-2 mb-2 items-center bg-white rounded-lg ">
-
               <AvatarGenerator />
               <p className="font-bold">{user.userName}</p>
             </div>

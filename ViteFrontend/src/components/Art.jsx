@@ -50,16 +50,12 @@ const Art = ({ art }) => {
         setSavingPost(false);
         console.log('art saved successfully')
         window.location.reload();
-
       } catch (error) {
         console.log(error);
       }
     }
   };
-
-
   return (
-
     <div className="m-2">
       {isLoading && <object type="image/svg+xml" data={Loading} style={{ maxHeight: "9rem" }} alt="Animation Loading"></object>}
       <div
@@ -98,18 +94,15 @@ const Art = ({ art }) => {
                     saveArt(_id);
                   }}
                   type="button"
-                  className="bg-gray-500/50 opacity-70 hover:opacity-100 text-white font-bold px-1 py-1 text-base hover:shadow-md rounded-1/2 outline-none"
+                  className="flex bg-gray-500/50 opacity-70 hover:opacity-100 text-white font-bold px-1 py-1 text-base hover:shadow-md rounded-1/2 outline-none"
                 >
                   {art?.save?.length}   {savingPost ? 'Saving...' : <LikeIcon />}
-
                 </button>
               )}
             </div>
             <div className=" flex justify-between items-center gap-2 w-full">
-
               {
                 postedBy?._id === user.id && (
-
                   <button
                     type="button"
                     onClick={(e) => {
@@ -120,7 +113,6 @@ const Art = ({ art }) => {
                   >
                     <DeleteIcon />
                   </button>
-
                 )
               }
             </div>
@@ -135,7 +127,6 @@ const Art = ({ art }) => {
         />
         <p className="font-semibold capitalize">{postedBy?.userName}</p>
       </Link>
-
     </div>
   );
 };
