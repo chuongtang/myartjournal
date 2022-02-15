@@ -2,7 +2,7 @@
   "name": "myartjournal",
   "private": true,
   "version": "1.0.0",
-  "description": "",
+  "description": "Turn your kids' visual journal into digital art",
   "main": "package.json",
   "author": "Chuong Tang <email@chuongtang.com>",
   "license": "UNLICENSED",
@@ -27,5 +27,7 @@
     "react-dom": "^17.0.2",
     "styled-components": "^5.3.3"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@babel/preset-env": "^7.16.11"
+  }
 }

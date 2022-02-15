@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import AuthContext from '../../store/authContext';
 import { Link, useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
@@ -16,7 +16,7 @@ const Art = ({ art }) => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
-  const { postedBy, image, _id, _ref } = art;
+  const { postedBy, image, _id, } = art;
   // console.log('pppp', postedBy)
   const deleteArt = async (id) => {
     try {
@@ -29,12 +29,12 @@ const Art = ({ art }) => {
     }
   };
 
-  let alreadySaved = art?.save?.filter((item) => item?.postedBy?._ref === user?.id);
+  let alreadyLiked = art?.save?.filter((item) => item?.postedBy?._ref === user?.id);
 
-  alreadySaved = alreadySaved?.length > 0 ? alreadySaved : [];
+  alreadyLiked = alreadyLiked?.length > 0 ? alreadyLiked : [];
 
   const saveArt = async (id) => {
-    if (alreadySaved?.length === 0) {
+    if (alreadyLiked?.length === 0) {
       try {
         setSavingPost(true);
         await  // ⇩ Update doc in sanaity database 
@@ -89,7 +89,7 @@ const Art = ({ art }) => {
                 ><DownloadIcon />
                 </a>
               </div>
-              {alreadySaved?.length !== 0 ? (
+              {alreadyLiked?.length !== 0 ? (
                 <button type="button" className="bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none">
                   {/* ❗ ⇩ Need to setState here instead of reload */}
                   {art?.save?.length}  Saved
