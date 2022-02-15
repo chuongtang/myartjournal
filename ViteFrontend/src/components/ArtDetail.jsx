@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import DownloadIcon from '../assets/DownloadIcon';
+import {DownloadIcon, AvatarGenerator} from '../assets';
 import { Link, useParams } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-import AvatarGenerator from '../utils/AvatarGenerator'
 import { client, urlFor } from '../client';
 import MasonryLayout from './MasonryLayout';
 import { artDetailMoreArtQuery, artDetailQuery } from '../utils/data';
@@ -15,6 +14,18 @@ const ArtDetail = ({ user }) => {
   const [comment, setComment] = useState('');
   const [addingComment, setAddingComment] = useState(false);
 
+  // callback to be invoked in below try-catch
+  const setArtWithQuery = async (queries) => {
+    const artQuery = artDetailMoreArtQuery(queries);
+    try {
+      let result = await client.fetch(artQuery);
+      setArts(result);
+    } catch (error) {
+      console.log("error in etArtWithQuery", error);
+    }
+
+  }
+
   const fetchArtDetails =async () => {
     const query = artDetailQuery(artId);
 
@@ -22,16 +33,10 @@ const ArtDetail = ({ user }) => {
 
       try {
         let data = await client.fetch(`${query}`);
-        setArtDetail(data[0]);
+        setArtDetail(data[0]); 
         console.log("Data ** ARTDETAIL ** from clientDotFetch", data[0].image.asset.url);
         if (data[0]) {
-          const query1 = artDetailMoreArtQuery(data[0]);
-          try {
-            let result = await client.fetch(query1);
-            setArts(result);
-          } catch (error) {
-            console.log("error with data[0]", error);
-          }
+          setArtWithQuery(data[0]);
         }
       } catch (error) {
         console.log("error fetchingQUERY", error);
@@ -45,7 +50,6 @@ const ArtDetail = ({ user }) => {
 
   const addComment = async () => {
     if (comment) {
-
       try {
         setAddingComment(true);
         await client
@@ -102,7 +106,7 @@ return (
           <Link to={`/user-profile/${artDetail?.postedBy._id}`} className="inline-flex gap-2 mt-5 items-center bg-white rounded-lg ">
             Posted by:<img src={artDetail?.postedBy.image}
               className="w-10 h-10 rounded-full"
-              alt="user-profile" />
+              alt="user-profile-POSTEDBY" />
             <p className="font-bold"> {artDetail?.postedBy.userName}</p>
           </Link>
           <h2 className="mt-5 text-2xl">Comments</h2>

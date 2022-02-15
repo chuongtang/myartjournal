@@ -6,10 +6,9 @@ import { client } from '../client';
 import MasonryLayout from './MasonryLayout';
 import { useContext } from 'react'
 import AuthContext from '../../store/authContext'
-import Loading from "../assets/Loading.svg";
-import ExitIcon from "../assets/ExitIcon";
+import {Loading, ExitIcon, AvatarGenerator} from "../assets";
 import Spinner from './Spinner';
-import AvatarGenerator from '../../src/utils/AvatarGenerator'
+
 
 const activeBtnStyles = 'bg-yellow-600 text-white font-bold p-2 rounded-xl w-20 outline-none';
 const notActiveBtnStyles = 'bg-primary mr-4 text-indigo-900 font-bold p-2 rounded-xl w-20 outline-none';

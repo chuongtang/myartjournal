@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
 import netlifyIdentity from 'netlify-identity-widget';
-import AvatarGenerator from '../src/utils/AvatarGenerator'
+import AvatarGenerator from '../src/assets/AvatarGenerator'
 
 // create global context 
 export const AuthContext = createContext({

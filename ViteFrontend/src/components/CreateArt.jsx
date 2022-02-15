@@ -1,15 +1,10 @@
 import React, { useState, useContext } from 'react';
-
 import { useNavigate } from 'react-router-dom';
-
 import AuthContext from '../../store/authContext'
 import { categories } from '../utils/data';
 import { client } from '../client';
 import Spinner from './Spinner';
-import UploadIcon from '../assets/UploadIcon';
-import DeleteIcon from '../assets/DeleleteIcon';
-import SaveIcon from '../assets/SaveIcon';
-import AvatarGenerator from "../utils/AvatarGenerator";
+import {UploadIcon, DeleteIcon, SaveIcon, AvatarGenerator} from '../assets'
 
 const CreateArt = () => {
   const { user, userImgUrl, } = useContext(AuthContext)

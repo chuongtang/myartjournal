@@ -1,18 +1,16 @@
 import React,{ useContext } from 'react';
 import AuthContext from '../../store/authContext'
 import { NavLink, Link } from 'react-router-dom';
-import RightArrow from '../assets/RightArrow';
-import AppLogo from '../assets/AppLogo';
-import HomeIcon from '../assets/HomeIcon';
+import {RightArrow, AvatarGenerator, AppLogo, HomeIcon} from '../assets';
 import { categories } from '../utils/data';
-import AvatarGenerator from "../utils/AvatarGenerator";
+
 
 const isNotActiveStyle = 'flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize';
 const isActiveStyle = 'flex items-center px-5 gap-3 font-extrabold transition-all duration-200 ease-in-out capitalize';
 
 const Sidebar = ({ closeToggle }) => {
 
-  const { user, userImgUrl } = useContext(AuthContext)
+  const { user } = useContext(AuthContext)
 
   const handleCloseSidebar = () => {
     if (closeToggle) closeToggle(false);

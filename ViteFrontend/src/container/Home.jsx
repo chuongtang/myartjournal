@@ -5,10 +5,7 @@ import { Sidebar, UserProfile } from '../components';
 import { userQuery } from '../utils/data';
 import { client } from '../client';
 import Arts from './Arts';
-import AppLogo from '../assets/AppLogo';
-import AvatarGenerator from '../utils/AvatarGenerator'
-import HamMenuIcon from '../assets/HamMenuIcon'
-import CloseMenuIcon from '../assets/CloseMenuIcon'
+import {AppLogo, AvatarGenerator, HamMenuIcon, CloseMenuIcon} from '../assets';
 
 const Home = () => {
   const [toggleSidebar, setToggleSidebar] = useState(false);

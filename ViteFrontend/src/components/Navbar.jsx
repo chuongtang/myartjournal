@@ -1,9 +1,7 @@
 import React, { useContext } from 'react';
 import AuthContext from '../../store/authContext'
 import { Link, useNavigate } from 'react-router-dom';
-import SearchIcon from "../assets/SearchIcon.jsx"
-import PlusIcon from "../assets/PlusIcon.jsx";
-import AvatarGenerator from "../utils/AvatarGenerator"
+import {SearchIcon, PlusIcon, AvatarGenerator} from '../assets';
 
 
 const Navbar = ({ searchTerm, setSearchTerm }) => {

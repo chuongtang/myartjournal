@@ -2,11 +2,8 @@ import React, { useState, useContext } from 'react';
 import AuthContext from '../../store/authContext';
 import { Link, useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-import DeleleteIcon from '../assets/DeleleteIcon'
 import { client, urlFor } from '../client';
-import Loading from '../assets/Loading.svg';
-import DownloadIcon from '../assets/DownloadIcon';
-import LikeIcon from '../assets/LikeIcon';
+import {DeleteIcon, Loading, DownloadIcon, LikeIcon } from '../assets'
 
 const Art = ({ art }) => {
 
@@ -17,7 +14,7 @@ const Art = ({ art }) => {
   const navigate = useNavigate();
 
   const { postedBy, image, _id, } = art;
-  // console.log('pppp', postedBy)
+
   const deleteArt = async (id) => {
     try {
       setIsLoading(true)
@@ -50,9 +47,9 @@ const Art = ({ art }) => {
               },
             }])
             .commit();
-        window.location.reload();
-        console.log('art saved successfully')
         setSavingPost(false);
+        console.log('art saved successfully')
+        window.location.reload();
 
       } catch (error) {
         console.log(error);
@@ -71,7 +68,7 @@ const Art = ({ art }) => {
         onClick={() => navigate(`/art-detail/${_id}`)}
         className=" relative cursor-zoom-in w-auto hover:shadow-lg rounded-lg overflow-hidden transition-all duration-500 ease-in-out"
       >
-        {!isLoading &&<img className="rounded-lg w-full " src={(urlFor(image).width(250).url())} alt="user-post" />}
+        {!isLoading && <img className="rounded-lg w-full " src={(urlFor(image).width(250).url())} alt="user-post" />}
         {postHovered && (
           <div
             className="absolute top-0 w-full h-full flex flex-col justify-between p-1 pr-2 pt-2 pb-2 z-50"
@@ -104,7 +101,7 @@ const Art = ({ art }) => {
                   className="bg-gray-500/50 opacity-70 hover:opacity-100 text-white font-bold px-1 py-1 text-base hover:shadow-md rounded-1/2 outline-none"
                 >
                   {art?.save?.length}   {savingPost ? 'Saving...' : <LikeIcon />}
-                  {/* {art?.save?.length}   {savingPost ? 'Saving...' : 'Save'} */}
+
                 </button>
               )}
             </div>
@@ -121,7 +118,7 @@ const Art = ({ art }) => {
                     }}
                     className="bg-white w-9 h-9 p-2 rounded-full flex items-center justify-center opacity-75 hover:opacity-100 hover:shadow-md outline-none"
                   >
-                    <DeleleteIcon />
+                    <DeleteIcon />
                   </button>
 
                 )
@@ -138,7 +135,7 @@ const Art = ({ art }) => {
         />
         <p className="font-semibold capitalize">{postedBy?.userName}</p>
       </Link>
-      {/* <img src={urlFor(image).width(250).url()}/> */}
+
     </div>
   );
 };
