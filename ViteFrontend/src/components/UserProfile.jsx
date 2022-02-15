@@ -14,9 +14,7 @@ const activeBtnStyles = 'bg-yellow-600 text-white font-bold p-2 rounded-xl w-20 
 const notActiveBtnStyles = 'bg-primary mr-4 text-indigo-900 font-bold p-2 rounded-xl w-20 outline-none';
 
 const UserProfile = () => {
-  const { user, login, logout, userImgUrl } = useContext(AuthContext)
-  // const [appUser, setAppUser] = useState();
-  // const [sanUserID, setSanUserID] = useState();
+  const { user, logout } = useContext(AuthContext)
   const [arts, setArts] = useState();
   const [text, setText] = useState('Created');
   const [activeBtn, setActiveBtn] = useState('created');
@@ -26,17 +24,6 @@ const UserProfile = () => {
 
 
   const User = localStorage.getItem('user') !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : localStorage.clear();
-
-  // useEffect(() => {
-  //   // const query = userQuery(userId);
-  //   // client.fetch(query).then((data) => {
-  //   // setAppUser(data[0]);
-  //   const { sub } = user;
-  //   // setSanUserID(sub.replace("|", "-"));
-  //   setAppUser(user);
-  // },
-  //   [user]);
-  // // }, [userId]);
 
   useEffect(async () => {
     try {
@@ -79,15 +66,6 @@ const UserProfile = () => {
             {user.user_metadata.full_name}
           </h1>
           <div className="absolute top-0 z-1 right-0 p-2">
-
-            {/* <button type="button"
-              className="px-1 py-1 border border-yellow-500 hover:bg-yellow-500 text-gray-800 hover:text-white text-sm font-medium rounded-md"
-              onClick={() => {
-                logout()
-                navigate('/')
-              }} >
-              Log out
-            </button> */}
             <ExitIcon onClick={() => {
               logout()
               navigate('/')
@@ -129,7 +107,6 @@ const UserProfile = () => {
           </div>
         )}
       </div>
-
     </div>
   );
 };

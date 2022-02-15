@@ -3,7 +3,6 @@ import AuthContext from '../../store/authContext'
 import { Link, useNavigate } from 'react-router-dom';
 import {SearchIcon, PlusIcon, AvatarGenerator} from '../assets';
 
-
 const Navbar = ({ searchTerm, setSearchTerm }) => {
   const navigate = useNavigate();
   const { user, userImgUrl} = useContext(AuthContext)
@@ -32,7 +31,6 @@ const Navbar = ({ searchTerm, setSearchTerm }) => {
       </div>
     );
   }
-
   return null;
 };
 

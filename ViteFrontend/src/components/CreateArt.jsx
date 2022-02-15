@@ -4,14 +4,14 @@ import AuthContext from '../../store/authContext'
 import { categories } from '../utils/data';
 import { client } from '../client';
 import Spinner from './Spinner';
-import {UploadIcon, DeleteIcon, SaveIcon, AvatarGenerator} from '../assets'
+import { UploadIcon, DeleteIcon, SaveIcon, AvatarGenerator } from '../assets'
 
 const CreateArt = () => {
-  const { user, userImgUrl, } = useContext(AuthContext)
+  const { user } = useContext(AuthContext)
   const [title, setTitle] = useState('');
   const [about, setAbout] = useState('');
   const [loading, setLoading] = useState(false);
-  const [fields, setFields] = useState();
+  const [fields, setFields] = useState(false);
   const [category, setCategory] = useState();
   const [imageAsset, setImageAsset] = useState();
   const [wrongImageType, setWrongImageType] = useState(false);
@@ -44,30 +44,14 @@ const CreateArt = () => {
     } else {
       setLoading(false);
       setWrongImageType(true);
+      setTimeout(
+        () => {
+          setWrongImageType(false);
+          console.log('setTimeout Fired');
+        }, 2000
+      );
     }
   }
-  //   if (selectedFile.type === 'image/png' || selectedFile.type === 'image/svg+xml' || selectedFile.type === 'image/jpeg' || selectedFile.type === 'image/gif' || selectedFile.type === 'image/tiff') {
-  //     try {
-  //       setWrongImageType(false);
-  //       setLoading(true);
-  //       let document = await client.assets
-  //         .upload('image', selectedFile,
-  //           {
-  //             contentType: selectedFile.type,
-  //             filename: selectedFile.name
-  //           });
-  //       setImageAsset(document);
-  //       setLoading(false);
-  //     } catch (error) {
-  //       console.error("error form uploading IMG", error);
-  //       console.log('Upload failed:', error.message);
-  //     }
-  //   } else {
-  //     setLoading(false);
-  //     setWrongImageType(true);
-  //   }
-  // };
-
 
   // ❗ ⇩ Need to add form validation for creatArt
   const saveArt = async () => {
@@ -100,11 +84,13 @@ const CreateArt = () => {
       } catch (error) {
         console.error
       }
-
     } else {
       setFields(true);
+
       setTimeout(
-        () => { setFields(false) }, 2000,
+        () => {
+          setFields(false);
+        }, 2000
       );
     }
   };
@@ -123,7 +109,7 @@ const CreateArt = () => {
               wrongImageType && (
                 <div className="bg-yellow-200 border-yellow-600 text-yellow-600 border-l-4 p-4" role="alert">
                   <p className="font-bold">
-                    File Error
+                    File Error ‼
                   </p>
                   <p>
                     Wrong type of file or size is over 20MB !
@@ -155,7 +141,6 @@ const CreateArt = () => {
                 <img
                   src={imageAsset?.url}
                   alt="uploaded-pic"
-                // className="h-full w-full"
                 />
                 <button
                   type="button"

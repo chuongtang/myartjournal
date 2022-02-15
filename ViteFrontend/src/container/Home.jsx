@@ -2,17 +2,15 @@ import React, { useState, useRef, useEffect, useContext } from 'react';
 import AuthContext from '../../store/authContext'
 import { Link, Route, Routes } from 'react-router-dom';
 import { Sidebar, UserProfile } from '../components';
-import { userQuery } from '../utils/data';
 import { client } from '../client';
 import Arts from './Arts';
-import {AppLogo, AvatarGenerator, HamMenuIcon, CloseMenuIcon} from '../assets';
+import { AppLogo, AvatarGenerator, HamMenuIcon, CloseMenuIcon } from '../assets';
 
 const Home = () => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
   const [appUser, setAppUser] = useState();
   const scrollRef = useRef(null);
   const { user, login, logout, authReady, userImgUrl } = useContext(AuthContext)
-  const userInfo = localStorage.getItem('user') !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : localStorage.clear();
 
   useEffect(async () => {
     console.log("User from context", user)
@@ -51,8 +49,7 @@ const Home = () => {
       {/* ⇩  Resposive switch from sidebar to Hamburger Menu in Navbar*/}
       <div className="flex md:hidden flex-row">
         <div className="p-2 w-full flex flex-row justify-between items-center shadow-md bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500">
-          {/* <HiMenu fontSize={40} className="cursor-pointer" onClick={() => setToggleSidebar(true)} /> */}
-          <HamMenuIcon className="cursor-pointer" onClick={() => setToggleSidebar(true)}/>
+          <HamMenuIcon className="cursor-pointer" onClick={() => setToggleSidebar(true)} />
           <Link to="/">
             <AppLogo size={50} />
           </Link>
@@ -70,7 +67,7 @@ const Home = () => {
           </div>
         )}
       </div>
-          {/* End of Responsive switch */}
+      {/* End of Responsive switch */}
 
       <div className="pb-2 flex-1 h-screen overflow-y-scroll" ref={scrollRef}>
 
