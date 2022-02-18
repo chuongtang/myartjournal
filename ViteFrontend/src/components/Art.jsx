@@ -97,7 +97,7 @@ const Art = ({ art }) => {
                     saveArt(_id);
                   }}
                   type="button"
-                  className="flex bg-gray-500/50 opacity-70 hover:opacity-100 text-white font-bold px-1 py-1 text-base hover:shadow-md rounded-1/2 outline-none"
+                  className="bg-white w-9 h-9 p-2 rounded-2xl flex items-center justify-center text-dark text-md opacity-75 hover:opacity-100 hover:shadow-md outline-none"
                 >
                   {art?.save?.length}   {savingPost ? 'Saving...' : <LikeIcon />}
                 </button>
