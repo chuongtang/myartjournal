@@ -11,32 +11,17 @@ const Feed = () => {
   const [loading, setLoading] = useState(false);
   const { categoryId } = useParams();
   const { triggerRender } = useContext(AppContext);
+  const categoryQuery = searchQuery(categoryId);
+
+  const fetchArts = async(queryName)=>{
+    setLoading(true);
+    const data = await client.fetch(queryName);
+    setArts(data);
+    setLoading(false);
+  }
 
   useEffect(async () => {
-
-    if (triggerRender && !categoryId) {
-      try {
-        setLoading(true);
-        console.log("else section in feed's useEffect fired");
-        const data = await client.fetch(feedQuery);
-        console.log("DATA from fetch", data);
-        setArts(data);
-        console.log("DATA AFTER  setState from fetch", data);
-        setLoading(false);
-      } catch (error) {
-        console.log(error)
-      };
-    } else {
-      try {
-        setLoading(true);
-        const query = searchQuery(categoryId);
-        const data = await client.fetch(query);
-        setArts(data);
-        setLoading(false);
-      } catch (error) {
-        console.log(error)
-      }
-    }
+    (triggerRender && !categoryId) ? fetchArts(feedQuery) : fetchArts(categoryQuery)
   }, [categoryId, triggerRender]);
 
   if (loading) {
