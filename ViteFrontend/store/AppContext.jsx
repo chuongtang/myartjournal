@@ -3,7 +3,7 @@ import netlifyIdentity from 'netlify-identity-widget';
 
 
 // create global context 
-export const AuthContext = createContext({
+export const AppContext = createContext({
   user: null,
   login: () => { },
   logout: () => { },
@@ -13,7 +13,7 @@ export const AuthContext = createContext({
 
 
 // Create a Provider to wrap around the app
-export const AuthContextProvider = ({ children }) => {
+export const AppContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [authReady, setAuthReady] = useState(false);
 
@@ -68,7 +68,7 @@ export const AuthContextProvider = ({ children }) => {
 
   const userImgUrl = user?.user_metadata.avatar_url || ImgURLstring;
 
-  const newRender =() =>{
+  const newRender = () => {
 
     //⇩ To ensure useEffect fired when state is TRUE only
     setTriggerRender(false);
@@ -77,14 +77,14 @@ export const AuthContextProvider = ({ children }) => {
   }
 
   // Create context to feed into provider
-  const context = { user, login, logout, authReady, userImgUrl,triggerRender, setTriggerRender,newRender }
+  const context = { user, login, logout, authReady, userImgUrl, triggerRender, setTriggerRender, newRender }
   // console.log('CONTEXT from PROVIDER', context);
 
   return (
-    <AuthContext.Provider value={context}>
+    <AppContext.Provider value={context}>
       {children}
-    </AuthContext.Provider>
+    </AppContext.Provider>
   )
 }
 
-export default AuthContext
+export default AppContext

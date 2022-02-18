@@ -1,7 +1,7 @@
-import React,{ useContext } from 'react';
-import AuthContext from '../../store/authContext'
+import React, { useContext } from 'react';
+import AppContext from '../../store/AppContext'
 import { NavLink, Link } from 'react-router-dom';
-import {RightArrow, AvatarGenerator, AppLogo, HomeIcon} from '../assets';
+import { RightArrow, AvatarGenerator, AppLogo, HomeIcon } from '../assets';
 import { categories } from '../utils/data';
 
 
@@ -10,7 +10,7 @@ const isActiveStyle = 'flex items-center px-5 gap-3 font-extrabold transition-al
 
 const Sidebar = ({ closeToggle }) => {
 
-  const { user } = useContext(AuthContext)
+  const { user } = useContext(AppContext)
 
   const handleCloseSidebar = () => {
     if (closeToggle) closeToggle(false);
@@ -24,7 +24,7 @@ const Sidebar = ({ closeToggle }) => {
           className="flex px-5 gap-2 my-4"
           onClick={handleCloseSidebar}
         >
-          <AppLogo size={70}/>
+          <AppLogo size={70} />
         </Link>
         <div className="flex flex-col gap-5">
 

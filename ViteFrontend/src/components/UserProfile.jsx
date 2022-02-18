@@ -5,8 +5,8 @@ import { userCreatedArtsQuery, userQuery, userSavedArtsQuery } from '../utils/da
 import { client } from '../client';
 import MasonryLayout from './MasonryLayout';
 import { useContext } from 'react'
-import AuthContext from '../../store/authContext'
-import {Loading, ExitIcon, AvatarGenerator} from "../assets";
+import AppContext from '../../store/AppContext'
+import { Loading, ExitIcon, AvatarGenerator } from "../assets";
 import Spinner from './Spinner';
 
 
@@ -14,7 +14,7 @@ const activeBtnStyles = 'bg-yellow-600 text-white font-bold p-2 rounded-xl w-20 
 const notActiveBtnStyles = 'bg-primary mr-4 text-indigo-900 font-bold p-2 rounded-xl w-20 outline-none';
 
 const UserProfile = () => {
-  const { user, logout } = useContext(AuthContext)
+  const { user, logout } = useContext(AppContext)
   const [arts, setArts] = useState();
   const [text, setText] = useState('Created');
   const [activeBtn, setActiveBtn] = useState('created');

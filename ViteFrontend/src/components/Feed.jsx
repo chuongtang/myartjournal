@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import AuthContext from '../../store/authContext';
+import AppContext from '../../store/AppContext';
 import { useParams } from 'react-router-dom';
 import { client } from '../client';
 import { feedQuery, searchQuery } from '../utils/data';
@@ -10,10 +10,10 @@ const Feed = () => {
   const [arts, setArts] = useState();
   const [loading, setLoading] = useState(false);
   const { categoryId } = useParams();
-  const {triggerRender} = useContext(AuthContext);
+  const { triggerRender } = useContext(AppContext);
 
   useEffect(async () => {
-   
+
     if (triggerRender && !categoryId) {
       try {
         setLoading(true);

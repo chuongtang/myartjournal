@@ -1,13 +1,13 @@
 import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import AuthContext from '../../store/authContext'
+import AppContext from '../../store/AppContext'
 import { categories } from '../utils/data';
 import { client } from '../client';
 import Spinner from './Spinner';
 import { UploadIcon, DeleteIcon, SaveIcon, AvatarGenerator } from '../assets'
 
 const CreateArt = () => {
-  const { user } = useContext(AuthContext)
+  const { user } = useContext(AppContext)
   const [title, setTitle] = useState('');
   const [about, setAbout] = useState('');
   const [loading, setLoading] = useState(false);

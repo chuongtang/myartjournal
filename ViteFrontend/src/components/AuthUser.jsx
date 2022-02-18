@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useContext } from 'react'
-import AuthContext from '../../store/authContext'
+import AppContext from '../../store/AppContext'
 import TextTransition, { presets } from "react-text-transition";
 import ParticleBG from './ParticleBG';
 import { AppLogo, LoginIcon } from '../assets'
@@ -15,7 +15,7 @@ const TEXTS = [
 
 const AuthUser = () => {
 
-  const { user, login } = useContext(AuthContext)
+  const { user, login } = useContext(AppContext)
 
   // Title animation config START
   const [index, setIndex] = useState(0);
@@ -25,7 +25,7 @@ const AuthUser = () => {
       setIndex(index => index + 1),
       3000
     );
-   
+
     return () => clearInterval(intervalId);
   }, []);
   // Title animation config END

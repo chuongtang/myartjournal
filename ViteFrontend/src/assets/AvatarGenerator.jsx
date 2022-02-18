@@ -1,8 +1,8 @@
 import react, { useContext } from "react";
-import AuthContext from '../../store/authContext';
+import AppContext from '../../store/AppContext';
 
 function AvatarGenerator() {
-  const { userImgUrl } = useContext(AuthContext);
+  const { userImgUrl } = useContext(AppContext);
 
   return (
     <img

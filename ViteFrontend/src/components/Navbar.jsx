@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
-import AuthContext from '../../store/authContext'
+import AppContext from '../../store/AppContext'
 import { Link, useNavigate } from 'react-router-dom';
-import {SearchIcon, PlusIcon, AvatarGenerator} from '../assets';
+import { SearchIcon, PlusIcon, AvatarGenerator } from '../assets';
 
 const Navbar = ({ searchTerm, setSearchTerm }) => {
   const navigate = useNavigate();
-  const { user, userImgUrl} = useContext(AuthContext)
+  const { user, userImgUrl } = useContext(AppContext)
   if (user) {
     return (
       <div className="flex gap-2 md:gap-4 w-full mt-5 pb- ">

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useContext } from 'react';
-import AuthContext from '../../store/authContext'
+import AppContext from '../../store/AppContext'
 import { Link, Route, Routes } from 'react-router-dom';
 import { Sidebar, UserProfile } from '../components';
 import { client } from '../client';
@@ -10,7 +10,7 @@ const Home = () => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
   const [appUser, setAppUser] = useState();
   const scrollRef = useRef(null);
-  const { user, login, logout, authReady, userImgUrl } = useContext(AuthContext)
+  const { user, login, logout, authReady, userImgUrl } = useContext(AppContext)
 
   useEffect(async () => {
     console.log("User from context", user)

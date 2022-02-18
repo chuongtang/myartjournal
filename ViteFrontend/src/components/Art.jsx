@@ -1,13 +1,13 @@
 import React, { useState, useContext } from 'react';
-import AuthContext from '../../store/authContext';
+import AppContext from '../../store/AppContext';
 import { Link, useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import { client, urlFor } from '../client';
-import {DeleteIcon, Loading, DownloadIcon, LikeIcon } from '../assets'
+import { DeleteIcon, Loading, DownloadIcon, LikeIcon } from '../assets'
 
 const Art = ({ art }) => {
 
-  const { user, setTriggerRender, newRender } = useContext(AuthContext);
+  const { user, setTriggerRender, newRender } = useContext(AppContext);
   const [postHovered, setPostHovered] = useState(false);
   const [savingPost, setSavingPost] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
