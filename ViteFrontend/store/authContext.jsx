@@ -16,6 +16,7 @@ export const AuthContext = createContext({
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [authReady, setAuthReady] = useState(false);
+  const [triggerRender, setTriggerRender] = useState(true)
 
   useEffect(() => {
 
@@ -65,9 +66,16 @@ export const AuthContextProvider = ({ children }) => {
 
   const userImgUrl = user?.user_metadata.avatar_url || ImgURLstring;
 
+  const newRender =() =>{
+
+    //⇩ To ensure useEffect fired when state is TRUE only
+    setTriggerRender(false);
+    setTriggerRender(true);
+    console.log('new render fired!!!!!')
+  }
 
   // Create context to feed into provider
-  const context = { user, login, logout, authReady, userImgUrl }
+  const context = { user, login, logout, authReady, userImgUrl,triggerRender, setTriggerRender,newRender }
   // console.log('CONTEXT from PROVIDER', context);
 
   return (

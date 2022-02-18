@@ -7,7 +7,7 @@ import {DeleteIcon, Loading, DownloadIcon, LikeIcon } from '../assets'
 
 const Art = ({ art }) => {
 
-  const { user } = useContext(AuthContext);
+  const { user, setTriggerRender, newRender } = useContext(AuthContext);
   const [postHovered, setPostHovered] = useState(false);
   const [savingPost, setSavingPost] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -20,7 +20,9 @@ const Art = ({ art }) => {
       setIsLoading(true)
       await client.delete(id);
       setIsLoading(false);
-      window.location.reload();
+      console.log(newRender);
+      newRender();
+      // window.location.reload();
     } catch (error) {
       console.log(error)
     }
@@ -49,7 +51,8 @@ const Art = ({ art }) => {
             .commit();
         setSavingPost(false);
         console.log('art saved successfully')
-        window.location.reload();
+        newRender();
+        // window.location.reload();
       } catch (error) {
         console.log(error);
       }

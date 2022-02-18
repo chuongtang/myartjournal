@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import AuthContext from '../../store/authContext';
 import { useParams } from 'react-router-dom';
 import { client } from '../client';
 import { feedQuery, searchQuery } from '../utils/data';
@@ -9,9 +10,11 @@ const Feed = () => {
   const [arts, setArts] = useState();
   const [loading, setLoading] = useState(false);
   const { categoryId } = useParams();
+  const {triggerRender} = useContext(AuthContext);
 
   useEffect(async () => {
-    if (!categoryId) {
+   
+    if (triggerRender && !categoryId) {
       try {
         setLoading(true);
         console.log("else section in feed's useEffect fired");
@@ -34,7 +37,7 @@ const Feed = () => {
         console.log(error)
       }
     }
-  }, [categoryId]);
+  }, [categoryId, triggerRender]);
 
   if (loading) {
     return (
@@ -48,6 +51,7 @@ const Feed = () => {
       )}
     </div>
   );
+
 };
 
 export default Feed;
