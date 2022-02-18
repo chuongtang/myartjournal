@@ -1,7 +1,6 @@
 import React from 'react';
 import Particles from "react-tsparticles";
 
-
 const ParticleBG = () => {
   return <div>
     <Particles
