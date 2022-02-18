@@ -16,6 +16,8 @@ export const AuthContext = createContext({
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [authReady, setAuthReady] = useState(false);
+
+  // ⇩ state accessible by child components
   const [triggerRender, setTriggerRender] = useState(true)
 
   useEffect(() => {
