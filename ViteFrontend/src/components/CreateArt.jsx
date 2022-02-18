@@ -78,13 +78,7 @@ const CreateArt = () => {
       try {
         setLoading(true);
         await client.create(doc);
-        console.log('Log after saving art')
-        setTimeout(
-          () => {
-            navigate("/search");
-          }, 1500
-        );
-        
+        navigate("/");
       } catch (error) {
         console.error
       }
