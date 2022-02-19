@@ -89,9 +89,9 @@ const Art = ({ art }) => {
                 </a>
               </div>
               {alreadyLiked?.length !== 0 ? (
-                <button type="button" className="bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none">
+                <button type="button" className="bg-red-500 opacity-50 hover:opacity-100 text-white font-bold p-1 text-base rounded-3xl hover:shadow-md outline-none">
                   {/* ❗ ⇩ Need to setState here instead of reload */}
-                  {art?.save?.length}  Likes
+                  {art?.save?.length}  {art?.save?.length > 1 ? "Likes" : "Like"}
                 </button>
               ) : (
                 <div className="flex pl-1 text-white text-md items-center bg-gray-500 rounded-full ">
