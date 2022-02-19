@@ -33,7 +33,7 @@ const ArtDetail = ({ user }) => {
       try {
         let data = await client.fetch(`${query}`);
         setArtDetail(data[0]); 
-        console.log("Data ** ARTDETAIL ** from clientDotFetch", data[0].image.asset.url);
+        console.log("Data ** ARTDETAIL ** from clientDotFetch", data[0]);
         if (data[0]) {
           setArtWithQuery(data[0]);
         }
@@ -54,7 +54,7 @@ const ArtDetail = ({ user }) => {
         await client
           .patch(artId)
           .setIfMissing({ comments: [] })
-          .insert('after', 'comments[-1]', [{ comment, _key: uuidv4(), postedBy: { _type: 'postedBy', _ref: user._id } }])
+          .insert('after', 'comments[-1]', [{ comment, _key: uuidv4(), postedBy: { _type: 'postedBy', _ref: user.id } }])
           .commit();
         fetchArtDetails();
         setComment('');

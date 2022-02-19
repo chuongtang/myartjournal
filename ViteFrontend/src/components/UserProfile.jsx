@@ -87,11 +87,11 @@ const UserProfile = () => {
             type="button"
             onClick={(e) => {
               setText(e.target.textContent);
-              setActiveBtn('saved');
+              setActiveBtn('liked');
             }}
-            className={`${activeBtn === 'saved' ? activeBtnStyles : notActiveBtnStyles}`}
+            className={`${activeBtn === 'liked' ? activeBtnStyles : notActiveBtnStyles}`}
           >
-            Saved
+            liked
           </button>
         </div>
         <div className="px-2">
