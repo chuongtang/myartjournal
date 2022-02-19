@@ -16,9 +16,9 @@ const Feed = () => {
   const fetchArts = async (queryName) => {
     setLoading(true);
     const data = await client.fetch(queryName);
-    console.log("%cfecthArts Fired!", "color: red");
-    console.log(queryName)
-    console.log("%cdata from Fetch", "color: green", data);
+    // console.log("%cfecthArts Fired!", "color: red");
+    // console.log(queryName)
+    // console.log("%cdata from Fetch", "color: green", data);
     setArts(data);
     setLoading(false);
   }

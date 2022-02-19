@@ -22,18 +22,20 @@ const Art = ({ art }) => {
       setIsLoading(false);
       console.log(newRender);
       newRender();
-      // window.location.reload();
     } catch (error) {
       console.log(error)
     }
   };
 
-  let alreadyLiked = art?.save?.filter((item) => item?.postedBy?._ref === user?.id);
-
+  let alreadyLiked = art?.save?.filter(item => item?.postedBy?._id === user.id);
+  // console.log("%cART.save array", "color: red",art.save )
+  // console.log("%cuser.id", "color: green",user.id )
+  // console.log("%calreadyLikedDATA", "color: blue",alreadyLiked )
   alreadyLiked = alreadyLiked?.length > 0 ? alreadyLiked : [];
-
+  // console.log("%calreadyLikedAFTER filter", "color: pink",alreadyLiked )
   const saveArt = async (id) => {
     if (alreadyLiked?.length === 0) {
+      console.log("%calreadyLikedDATA", "color: red",alreadyLiked )
       try {
         setSavingPost(true);
         await  // ⇩ Update doc in sanaity database 
@@ -50,9 +52,10 @@ const Art = ({ art }) => {
             }])
             .commit();
         setSavingPost(false);
-        console.log('art saved successfully')
-        newRender();
-        // window.location.reload();
+        console.log("%cart saved successfully", "color: green");
+        // console.log('art saved successfully')
+        // newRender();
+        
       } catch (error) {
         console.log(error);
       }
@@ -88,7 +91,7 @@ const Art = ({ art }) => {
               {alreadyLiked?.length !== 0 ? (
                 <button type="button" className="bg-red-500 opacity-70 hover:opacity-100 text-white font-bold px-5 py-1 text-base rounded-3xl hover:shadow-md outline-none">
                   {/* ❗ ⇩ Need to setState here instead of reload */}
-                  {art?.save?.length}  Saved
+                  {art?.save?.length}  Likes
                 </button>
               ) : (
                 <div className="flex pl-1 text-white text-md items-center bg-gray-500 rounded-full ">
