@@ -7,7 +7,7 @@ import { DeleteIcon, Loading, DownloadIcon, LikeIcon } from '../assets'
 
 const Art = ({ art }) => {
 
-  const { user, setTriggerRender, newRender } = useContext(AppContext);
+  const { user, newRender } = useContext(AppContext);
   const [postHovered, setPostHovered] = useState(false);
   const [savingPost, setSavingPost] = useState(false);
   const [isLoading, setIsLoading] = useState(false);

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import MasonryLayout from './MasonryLayout';
 import { client } from '../client';
-import { feedQuery, searchQuery } from '../utils/data';
+import { allArtsQuery, searchQuery } from '../utils/data';
 import Spinner from './Spinner';
 
 const Search = ({ searchTerm }) => {
@@ -21,7 +21,7 @@ const Search = ({ searchTerm }) => {
         console.error(error)
       }
     } else {
-      let data = await client.fetch(feedQuery)
+      let data = await client.fetch(allArtsQuery)
       setArts(data);
       setLoading(false);
     }

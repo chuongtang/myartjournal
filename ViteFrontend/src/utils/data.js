@@ -30,7 +30,7 @@ export const categories = [
   {
     name: 'art',
     image: 'https://chuongtang.github.io/sourceStore/GenSources/Art.gif',
-  }, 
+  },
   {
     name: 'travel',
     image: 'https://chuongtang.github.io/sourceStore/GenSources/Travel.gif',
@@ -51,7 +51,7 @@ export const categories = [
   },
 ];
 
-export const feedQuery = `*[_type == "art"] | order(_createdAt desc) {
+export const allArtsQuery = `*[_type == "art"] | order(_createdAt desc) {
   image{
     asset->{
       url

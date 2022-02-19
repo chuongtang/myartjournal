@@ -23,8 +23,7 @@ const ArtDetail = ({ user }) => {
     } catch (error) {
       console.log("error in etArtWithQuery", error);
     }
-
-  }
+  };
 
   const fetchArtDetails =async () => {
     const query = artDetailQuery(artId);

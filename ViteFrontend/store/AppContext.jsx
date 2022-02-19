@@ -71,8 +71,7 @@ export const AppContextProvider = ({ children }) => {
   const newRender = () => {
 
     //⇩ To ensure useEffect fired when state is TRUE only
-    setTriggerRender(false);
-    setTriggerRender(true);
+    setTriggerRender(!triggerRender);
     console.log('new render fired!!!!!')
   }
 
