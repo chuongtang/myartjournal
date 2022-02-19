@@ -91,16 +91,19 @@ const Art = ({ art }) => {
                   {art?.save?.length}  Saved
                 </button>
               ) : (
+                <div className="flex pl-1 text-white text-md items-center bg-gray-500 rounded-full ">
+                {art?.save?.length} 
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
                     saveArt(_id);
                   }}
                   type="button"
-                  className="bg-white w-9 h-9 p-2 rounded-2xl flex items-center justify-center text-dark text-md opacity-75 hover:opacity-100 hover:shadow-md outline-none"
+                  className="w-auto h-auto p-2 flex items-center opacity-75 hover:opacity-100 hover:shadow-md outline-none"
                 >
-                  {art?.save?.length}   {savingPost ? 'Saving...' : <LikeIcon />}
+                    {savingPost ? 'Saving...' : <LikeIcon />}
                 </button>
+                </div>
               )}
             </div>
             <div className=" flex justify-between items-center gap-2 w-full">
