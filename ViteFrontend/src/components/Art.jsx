@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import AppContext from '../../store/AppContext';
 import { Link, useNavigate } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
@@ -11,8 +11,9 @@ const Art = ({ art }) => {
   const [postHovered, setPostHovered] = useState(false);
   const [savingPost, setSavingPost] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [likeClicked, setLikeClicked] = useState(false);
   const navigate = useNavigate();
-
+  const [localLikes, setLocalLikes] = useState(0);
   const { postedBy, image, _id, } = art;
 
   const deleteArt = async (id) => {
@@ -26,17 +27,28 @@ const Art = ({ art }) => {
       console.log(error)
     }
   };
-
   let alreadyLiked = art?.save?.filter(item => item?.postedBy?._id === user.id);
+  
+  let likesArray = alreadyLiked?.length > 0 ? alreadyLiked : [];
+  // console.log(likesArray);
+  useEffect(() => {
+    setLocalLikes(art?.save?.length);
+  }, []);
+
+
   // console.log("%cART.save array", "color: red",art.save )
   // console.log("%cuser.id", "color: green",user.id )
   // console.log("%calreadyLikedDATA", "color: blue",alreadyLiked )
-  alreadyLiked = alreadyLiked?.length > 0 ? alreadyLiked : [];
+  // let likeArray = alreadyLiked?.length > 0 ? alreadyLiked : [];
   // console.log("%calreadyLikedAFTER filter", "color: pink",alreadyLiked )
   const saveArt = async (id) => {
-    if (alreadyLiked?.length === 0) {
-      console.log("%calreadyLikedDATA", "color: red",alreadyLiked )
+
+    // Only update Sanity when "like" is new click
+    if (likesArray?.length === 0 ) {
+      console.log("%calreadyLikedDATA", "color: red", localLikes)
       try {
+        setLikeClicked(true);
+        setLocalLikes(localLikes + 1); // update localLikes number to render
         setSavingPost(true);
         await  // ⇩ Update doc in sanaity database 
           client
@@ -55,7 +67,7 @@ const Art = ({ art }) => {
         console.log("%cart saved successfully", "color: green");
         // console.log('art saved successfully')
         // newRender();
-        
+
       } catch (error) {
         console.log(error);
       }
@@ -88,24 +100,25 @@ const Art = ({ art }) => {
                 ><DownloadIcon />
                 </a>
               </div>
-              {alreadyLiked?.length !== 0 ? (
+              {likeClicked || likesArray?.length !== 0 ? (
                 <button type="button" className="bg-red-500 opacity-50 hover:opacity-100 text-white font-bold p-1 text-base rounded-3xl hover:shadow-md outline-none">
-                  {/* ❗ ⇩ Need to setState here instead of reload */}
-                  {art?.save?.length}  {art?.save?.length > 1 ? "Likes" : "Like"}
+                  {/* ⇩  +1 to render new click */}
+                  {localLikes || 1}  {localLikes > 1 ? "Likes" : "Like"}
+                  
                 </button>
               ) : (
                 <div className="flex pl-1 text-white text-md items-center bg-gray-500 rounded-full ">
-                {art?.save?.length} 
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    saveArt(_id);
-                  }}
-                  type="button"
-                  className="w-auto h-auto p-2 flex items-center opacity-75 hover:opacity-100 hover:shadow-md outline-none"
-                >
+                  {art?.save?.length}
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      saveArt(_id);
+                    }}
+                    type="button"
+                    className="w-auto h-auto p-2 flex items-center opacity-75 hover:opacity-100 hover:shadow-md outline-none"
+                  >
                     {savingPost ? 'Saving...' : <LikeIcon />}
-                </button>
+                  </button>
                 </div>
               )}
             </div>
