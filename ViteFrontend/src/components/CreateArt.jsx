@@ -119,7 +119,7 @@ const CreateArt = () => {
               <label>
                 <div className="flex flex-col items-center justify-center h-full">
                   <div className="flex flex-col justify-center items-center">
-                    <UploadIcon />
+                    <UploadIcon style={{'height': '10rem'}}/>
                     <p className="text-lg">Click to upload</p>
                   </div>
 

@@ -6,8 +6,8 @@ function ExitIcon(props) {
     xmlns="http://www.w3.org/2000/svg"
     viewBox="10 10 500 500"
     style={{
-      height: "15%",
-      width: "15%",
+      height: "auto",
+      width: "3rem",
     }}
     {...props}
   >
