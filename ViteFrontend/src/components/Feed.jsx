@@ -23,8 +23,17 @@ const Feed = () => {
     setLoading(false);
   }
 
+  // Memory leaks!! ⬇ cost me full day to debug 😪 and I found the fix here: ➡ https://dev.to/jexperton/how-to-fix-the-react-memory-leak-warning-d4i
   useEffect(async () => {
+    let cancelAsync = false;
+    
+    if (cancelAsync) return;
     (!categoryId) ? fetchArts(allArtsQuery) : fetchArts(categoryQuery)
+
+    return () => { 
+      cancelAsync = true;
+    }
+
   }, [categoryId, triggerRender]);
 
   if (loading) {
