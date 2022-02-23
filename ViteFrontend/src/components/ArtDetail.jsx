@@ -33,7 +33,7 @@ const ArtDetail = ({ user }) => {
       try {
         let data = await client.fetch(`${query}`);
         setArtDetail(data[0]); 
-        console.log("Data ** ARTDETAIL ** from clientDotFetch", data[0]);
+        
         if (data[0]) {
           setArtWithQuery(data[0]);
         }

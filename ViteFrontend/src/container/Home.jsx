@@ -8,12 +8,11 @@ import { AppLogo, AvatarGenerator, HamMenuIcon, CloseMenuIcon } from '../assets'
 
 const Home = () => {
   const [toggleSidebar, setToggleSidebar] = useState(false);
-  const [appUser, setAppUser] = useState();
   const scrollRef = useRef(null);
-  const { user, login, logout, authReady, userImgUrl } = useContext(AppContext)
+  const { user, userImgUrl } = useContext(AppContext)
 
   useEffect(async () => {
-    console.log("User from context", user)
+
 
     if (user) {
       // ⇩ create this obj to store in Sanity
@@ -26,7 +25,7 @@ const Home = () => {
 
       try {
         await client.createIfNotExists(newUserInfo);
-        console.log('newUser added into Sanity');
+        
       } catch (error) {
         console.log('error creating NewUSer', error)
       }

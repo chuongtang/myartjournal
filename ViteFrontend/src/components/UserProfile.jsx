@@ -22,9 +22,6 @@ const UserProfile = () => {
   const { userId } = useParams();
   const [loading, setLoading] = useState(false);
 
-
-  const User = localStorage.getItem('user') !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : localStorage.clear();
-
   useEffect(async () => {
     try {
       if (text === 'Created') {

@@ -1,15 +1,92 @@
-<svg width="410" height="404" viewBox="0 0 410 404" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M399.641 59.5246L215.643 388.545C211.844 395.338 202.084 395.378 198.228 388.618L10.5817 59.5563C6.38087 52.1896 12.6802 43.2665 21.0281 44.7586L205.223 77.6824C206.398 77.8924 207.601 77.8904 208.776 77.6763L389.119 44.8058C397.439 43.2894 403.768 52.1434 399.641 59.5246Z" fill="url(#paint0_linear)"/>
-<path d="M292.965 1.5744L156.801 28.2552C154.563 28.6937 152.906 30.5903 152.771 32.8664L144.395 174.33C144.198 177.662 147.258 180.248 150.51 179.498L188.42 170.749C191.967 169.931 195.172 173.055 194.443 176.622L183.18 231.775C182.422 235.487 185.907 238.661 189.532 237.56L212.947 230.446C216.577 229.344 220.065 232.527 219.297 236.242L201.398 322.875C200.278 328.294 207.486 331.249 210.492 326.603L212.5 323.5L323.454 102.072C325.312 98.3645 322.108 94.137 318.036 94.9228L279.014 102.454C275.347 103.161 272.227 99.746 273.262 96.1583L298.731 7.86689C299.767 4.27314 296.636 0.855181 292.965 1.5744Z" fill="url(#paint1_linear)"/>
-<defs>
-<linearGradient id="paint0_linear" x1="6.00017" y1="32.9999" x2="235" y2="344" gradientUnits="userSpaceOnUse">
-<stop stop-color="#41D1FF"/>
-<stop offset="1" stop-color="#BD34FE"/>
-</linearGradient>
-<linearGradient id="paint1_linear" x1="194.651" y1="8.81818" x2="236.076" y2="292.989" gradientUnits="userSpaceOnUse">
-<stop stop-color="#FFEA83"/>
-<stop offset="0.0833333" stop-color="#FFDD35"/>
-<stop offset="1" stop-color="#FFA800"/>
-</linearGradient>
-</defs>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="7.5936775mm"
+   height="7.2261028mm"
+   viewBox="0 0 7.5936775 7.2261028"
+   version="1.1"
+   id="svg1003"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   sodipodi:docname="drawing-3.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1005"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="5.7584736"
+     inkscape:cx="85.265651"
+     inkscape:cy="26.482712"
+     inkscape:window-width="1920"
+     inkscape:window-height="1001"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1000" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-114.631,-141.9234)">
+    <image
+       width="7.5936775"
+       height="7.2261028"
+       preserveAspectRatio="none"
+       style="image-rendering:optimizeQuality"
+       xlink:href="data:image/png;base64,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
+"
+       id="image1072"
+       x="114.631"
+       y="141.9234" />
+  </g>
 </svg>

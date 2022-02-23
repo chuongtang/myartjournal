@@ -19,3 +19,6 @@
 * <img src="https://chuongtang.github.io/sourceStore/logos/Sanity.png" alt="Sanity"
 	title="Sanity logo" height="20" /> [Sanity: ](https://www.sanity.io) A futuristic CMS platform for building data driven application.
  
+**Deployment:** 
+* <img src="https://chuongtang.github.io/sourceStore/logos/Netlify.png" alt="Netlify Logo"
+	title="Netlify Identity logo" height="20" /> [Netlify Build: ](https://www.netlify.com/products/build) A modern CI/CD infrastructure for frontend teams, pre-configured and fully automated. Just connect your Code repo then push!

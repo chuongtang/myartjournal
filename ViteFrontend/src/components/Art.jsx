@@ -21,7 +21,6 @@ const Art = ({ art }) => {
       setIsLoading(true)
       await client.delete(id);
       setIsLoading(false);
-      console.log(newRender);
       newRender();
     } catch (error) {
       console.log(error)
@@ -30,22 +29,17 @@ const Art = ({ art }) => {
   let alreadyLiked = art?.save?.filter(item => item?.postedBy?._id === user.id);
   
   let likesArray = alreadyLiked?.length > 0 ? alreadyLiked : [];
-  // console.log(likesArray);
+  
   useEffect(() => {
     setLocalLikes(art?.save?.length);
   }, []);
 
 
-  // console.log("%cART.save array", "color: red",art.save )
-  // console.log("%cuser.id", "color: green",user.id )
-  // console.log("%calreadyLikedDATA", "color: blue",alreadyLiked )
-  // let likeArray = alreadyLiked?.length > 0 ? alreadyLiked : [];
-  // console.log("%calreadyLikedAFTER filter", "color: pink",alreadyLiked )
   const saveArt = async (id) => {
 
-    // Only update Sanity when "like" is new click
-    if (likesArray?.length === 0 ) {
-      console.log("%calreadyLikedDATA", "color: red", localLikes)
+    // Only update Sanity when "like" has NOT been clicked
+    if (!likeClicked ) {
+      // console.log("%calreadyLikedDATA", "color: red", localLikes)
       try {
         setLikeClicked(true);
         setLocalLikes(localLikes + 1); // update localLikes number to render
@@ -64,9 +58,6 @@ const Art = ({ art }) => {
             }])
             .commit();
         setSavingPost(false);
-        console.log("%cart saved successfully", "color: green");
-        // console.log('art saved successfully')
-        // newRender();
 
       } catch (error) {
         console.log(error);

@@ -33,7 +33,7 @@ const Search = ({ searchTerm }) => {
       {loading && <Spinner message="Searching artworks" />}
       {arts?.length !== 0 && <MasonryLayout arts={arts} />}
       {arts?.length === 0 && searchTerm !== '' && !loading && (
-        <div className="mt-10 text-center text-xl ">No arts Found!</div>
+        <div className="mt-10 text-center text-xl ">No arts found, do you wanna add one?</div>
       )}
     </div>
   );

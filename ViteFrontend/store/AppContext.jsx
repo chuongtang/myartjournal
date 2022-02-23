@@ -72,7 +72,7 @@ export const AppContextProvider = ({ children }) => {
 
     //⇩ To ensure useEffect fired when state is TRUE only
     setTriggerRender(!triggerRender);
-    console.log('new render fired!!!!!')
+    
   }
 
   // Create context to feed into provider

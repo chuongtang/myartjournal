@@ -47,13 +47,12 @@ const CreateArt = () => {
       setTimeout(
         () => {
           setWrongImageType(false);
-          console.log('setTimeout Fired');
         }, 2000
       );
     }
   }
 
-  // ❗ ⇩ Need to add form validation for creatArt
+  
   const saveArt = async () => {
 
     if (title && about && imageAsset?._id && category) {
