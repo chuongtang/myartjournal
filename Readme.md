@@ -14,6 +14,9 @@
 	title="WindiCSS logo" height="20" /> [WindiCSS:](https://windicss.org/guide) faster load times, full compatibility with Tailwind and intergrated with <img src="https://chuongtang.github.io/sourceStore/logos/Vite.png" alt="VITE"
 	title="VITE logo" height="20" />
 
+**Particle animation:** 
+  * <img src="https://chuongtang.github.io/sourceStore/logos/ParticleJS.jpg" alt="ParticleJS"
+	title="Particle Animation" height="20" /> [ParticleJS:](https://particles.js.org/) Dependency free Particle libray. Browser ready and compatible with React.
 
 **Backend:** 
 * <img src="https://chuongtang.github.io/sourceStore/logos/Sanity.png" alt="Sanity"

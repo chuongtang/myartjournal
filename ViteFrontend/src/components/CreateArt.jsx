@@ -22,7 +22,7 @@ const CreateArt = () => {
     const selectedFile = e.target.files[0];
     // uploading asset to sanity
 
-    const imgTypes = ['image/png', 'image/jpeg', 'image/svg+xml', 'image/jpeg', 'image/gif', 'image/tiff', 'image/webp',];
+    const imgTypes = ['image/png', 'image/jpeg', 'image/svg+xml', 'image/jpeg', 'image/gif', 'image/tiff', 'image/webp'];
 
     // Validate file type with above imagesType array
     if (imgTypes.indexOf(selectedFile.type) !== -1) {
