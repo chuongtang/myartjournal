@@ -13,7 +13,6 @@ const Home = () => {
 
   useEffect(async () => {
 
-
     if (user) {
       // ⇩ create this obj to store in Sanity
       const newUserInfo = {
@@ -52,7 +51,6 @@ const Home = () => {
           <Link to="/">
             <AppLogo size={50} />
           </Link>
-
           <Link to={`user-profile/${user?.id}`} className="border border-gray-500 rounded-full">
             <AvatarGenerator />
           </Link>
@@ -67,19 +65,13 @@ const Home = () => {
         )}
       </div>
       {/* End of Responsive switch */}
-
       <div className="pb-2 flex-1 h-screen overflow-y-scroll" ref={scrollRef}>
-
         <Routes>
           <Route path="/user-profile/:userId" element={<UserProfile />} />
           <Route path="/*" element={<Arts user={user && user} />} />
         </Routes>
       </div>
-
-
-
     </div>
   );
 };
-
 export default Home;

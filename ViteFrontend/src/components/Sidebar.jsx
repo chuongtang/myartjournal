@@ -11,11 +11,9 @@ const isActiveStyle = 'flex items-center px-5 gap-3 font-extrabold transition-al
 const Sidebar = ({ closeToggle }) => {
 
   const { user } = useContext(AppContext)
-
   const handleCloseSidebar = () => {
     if (closeToggle) closeToggle(false);
   };
-
   return (
     <div className="flex flex-col justify-between bg-white h-full overflow-y-scroll hide-scrollbar ">
       <div className="flex flex-col">

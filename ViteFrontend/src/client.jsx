@@ -9,8 +9,6 @@ export const client = sanityClient({
   token: import.meta.env.VITE_SANITY_TOKEN,
 });
 
-
-// from Sanity doc
+// Quickly generate image urls from Sanity image records.
 const builder = imageUrlBuilder(client);
-
 export const urlFor = (source) => builder.image(source);

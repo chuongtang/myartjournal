@@ -78,7 +78,7 @@ export const AppContextProvider = ({ children }) => {
   // Create context to feed into provider
   const context = { user, login, logout, authReady, userImgUrl, triggerRender, setTriggerRender, newRender }
   // console.log('CONTEXT from PROVIDER', context);
-
+  console.log(user);
   return (
     <AppContext.Provider value={context}>
       {children}
