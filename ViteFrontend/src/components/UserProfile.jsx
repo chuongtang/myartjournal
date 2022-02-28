@@ -9,7 +9,6 @@ import AppContext from '../../store/AppContext'
 import { Loading, ExitIcon, AvatarGenerator } from "../assets";
 import Spinner from './Spinner';
 
-
 const activeBtnStyles = 'bg-yellow-600 text-white font-bold p-2 rounded-xl w-20 outline-none';
 const notActiveBtnStyles = 'bg-primary mr-4 text-indigo-900 font-bold p-2 rounded-xl w-20 outline-none';
 
@@ -45,7 +44,6 @@ const UserProfile = () => {
     <object type="image/svg+xml" data={Loading} style={{ maxHeight: "9rem" }} alt="Animation Loading"></object>
     <p>Loading user profile</p>
   </div>;
-
 
   return (
     <div className="relative pb-2 h-full justify-center items-center">
@@ -97,7 +95,6 @@ const UserProfile = () => {
           )}
           <MasonryLayout arts={arts} />
         </div>
-
         {arts?.length === 0 && (
           <div className="flex justify-center font-bold items-center w-full text-1xl mt-2">
             Nothing to show..yet !
