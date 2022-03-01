@@ -24,7 +24,7 @@ const Navbar = ({ searchTerm, setSearchTerm }) => {
           <Link to={`user-profile/${user?.id}`} className="hidden md:block">
             <AvatarGenerator />
           </Link>
-          <Link to="/create-art" className=" rounded-lg w-12 h-12 md:w-10 md:h-10 flex justify-center items-center">
+          <Link to="/create-art" className="animate-bounce rounded-lg w-12 h-12 md:w-10 md:h-10 flex justify-center items-center">
             <PlusIcon />
           </Link>
         </div>
