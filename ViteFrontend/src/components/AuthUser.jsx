@@ -37,7 +37,7 @@ const AuthUser = () => {
       <ParticleBG />
       <div className="relative w-full h-full ">
         <div className="absolute flex flex-col justify-center items-center top-0 right-0 left-0 bottom-0 bg-blackOverlay">
-          <div className="p-5">
+          <div className="p-5 rotate-scale-down">
             <AppLogo size={250} />
           </div>
           <section className='mx-4 md:text-3xl lg:text-5xl font-600 text-shadow-sm  text-stroke-sm mb-8 flex'>
@@ -49,7 +49,7 @@ const AuthUser = () => {
             /><span className='text-red-500'>s</span>
           </section>
           <div className="shadow-2xl ">
-            <button type="button" className="py-2 px-4  bg-gray-500/50 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg " onClick={login}>
+            <button type="button" className="wobble-hor-bottom py-2 px-4  bg-gray-500/50 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-full transition ease-in duration-200 font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg " onClick={login}>
               LOGIN
               <LoginIcon />
             </button>
